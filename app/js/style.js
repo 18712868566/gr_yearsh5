@@ -56,23 +56,30 @@ function argumentsTabs(tabList, tabbox, index = 0) {
 };
 
 
+
+let loading_hero_w = document.getElementById('loading_hero').clientWidth;
+let loading_hero_h = document.getElementById('loading_hero').clientHeight;
+
 //pixi参数
-let option = {
-    width: window.innerWidth, //宽度
-    height: window.innerHeight, // 高度
+let optionRunHomeLxy = {
+    width: loading_hero_w, //宽度
+    height: loading_hero_h, // 高度
     transparent: true, // 透明度
     antialias: true, //使得字体的边界和几何图形更加圆滑
-    resolution: 1 //分辨率和像素密度
+    resolution: 1, //分辨率和像素密度
 }
-
 // 创建一个pixi应用
-let app = new PIXI.Application(option);
+let app = new PIXI.Application(optionRunHomeLxy);
 
-app.renderer.autoResize = true;
 // 获取渲染器
 let renderer = app.renderer;
+
+// 使用画布的resize方法可以改变canvas的大小
+renderer.autoResize = true;
+
 // 获取dom
 let playground = document.getElementById('loading_hero');
+
 // 把 Pixi 创建的 canvas 添加到页面上
 playground.appendChild(renderer.view);
 
@@ -81,10 +88,6 @@ let TextureCache = PIXI.utils.TextureCache; // 存储缓存纹理
 let Texture = PIXI.Texture;
 let Rectangle = PIXI.Rectangle;
 let AnimatedSprite = PIXI.extras.AnimatedSprite;
-
-
-//叫 SpriteUtilities 的库，该库包含许多有用的函数，用于创建Pixi精灵并使它们更易于使用。
-let su = new SpriteUtilities(PIXI);
 
 //需要加载的雪碧图的地址（该图片服务器端已做跨域处理）
 let imgURL = "../images/hero/露西亚-红莲/露西亚-红莲-走路/lxy_hl_move.png";
@@ -95,15 +98,21 @@ PIXI.loader.add(imgURL).load(setup);
 
 
 function setup() {
-
+    //叫 SpriteUtilities 的库，该库包含许多有用的函数，用于创建Pixi精灵并使它们更易于使用。
+    let su = new SpriteUtilities(PIXI);
     //创建纹理数组
     let frames = su.filmstrip(imgURL, 280, 280);
     // let frames = su.filmstrip(imgURL, 80, 143);
+
     //创建动画精灵
     let pixie = new PIXI.extras.AnimatedSprite(frames);
 
+    //Change the sprite's size
+    pixie.width = loading_hero_w;
+    pixie.height = loading_hero_h;
+
     //设置动画精灵的速度
-    pixie.animationSpeed = 0.1;
+    pixie.animationSpeed = 0.15;
 
     //把动画精灵添加到舞台
     app.stage.addChild(pixie);
@@ -113,14 +122,7 @@ function setup() {
 
 
 
-
-
-
-
-
-window.addEventListener("resize", function(event){
-    app.renderer.resize(window.innerWidth, window.innerHeight);
+window.addEventListener("resize", function(event) {
+    app.renderer.resize(loading_hero_w, loading_hero_h);
 });
-
-
 

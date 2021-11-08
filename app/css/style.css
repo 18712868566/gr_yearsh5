@@ -8,405 +8,109 @@
 /*.pinghei { font-family: 'pinghei'; color: #fff; }*/
 
 /* CSS Document wlo:Cflower */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-    border: 0 none;
-    font: inherit;
-    margin: 0;
-    padding: 0;
-}
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-
-ol, ul {
-    list-style: outside none none;
-}
-
-blockquote, q {
-    quotes: none;
-}
-
-blockquote::before, blockquote::after, q::before, q::after {
-    content: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-* {
-    box-sizing: border-box;
-    outline: 0 none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-input, textarea {
-    border-radius: 0;
-    outline: 0 none;
-    resize: none;
-    -webkit-appearance: none;    /*去掉iOS下input的默认内阴影*/
-}
-
-.clearfix:after, .clearfloat:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: "";
-    clear: both;
-    height: 0;
-}
-
-html {
-    font-family: "Arial", "Heiti SC", "Helvetica", "Microsoft YaHei", sans-serif;
-    -webkit-text-size-adjust: none;
-}
-
-body {
-    margin: 0 auto;
-    min-width: 3.2rem;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: #fefefe;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.clearfloat:after {
-    clear: both;
-    content: "";
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-
-.ridius {
-    border-radius: 5px;
-}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border: 0 none; font: inherit; margin: 0; padding: 0; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: outside none none; }
+blockquote, q { quotes: none; }
+blockquote::before, blockquote::after, q::before, q::after { content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+* { box-sizing: border-box; outline: 0 none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+input, textarea { border-radius: 0; outline: 0 none; resize: none; -webkit-appearance: none;    /*去掉iOS下input的默认内阴影*/ }
+.clearfix:after, .clearfloat:after { visibility: hidden; display: block; font-size: 0; content: ""; clear: both; height: 0; }
+html { font-family: "Arial", "Heiti SC", "Helvetica", "Microsoft YaHei", sans-serif; -webkit-text-size-adjust: none; overflow: hidden;position: relative;}
+body { margin: 0 auto; min-width: 3.2rem; position: relative; width: 100%; height: 100%; background: #fefefe;overflow: hidden;position: relative; }
+a { text-decoration: none; color: inherit; }
+.clearfloat:after { clear: both; content: ""; display: block; height: 0; visibility: hidden; }
+.ridius { border-radius: 5px; }
 
 /* 假如添加了video标签,可能会出现video标签默认置顶的情况,解决这个bug可以通过样式设置来规避;*/
-.compatibleStyle {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;    /* Chrome 和 Safari */
-    -moz-backface-visibility: hidden;    /* Firefox */
-    -ms-backface-visibility: hidden;    /* Internet Explorer */
-    -webkit-perspective: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-    visibility: visible;
-}
+.compatibleStyle { backface-visibility: hidden; -webkit-backface-visibility: hidden;    /* Chrome 和 Safari */ -moz-backface-visibility: hidden;    /* Firefox */ -ms-backface-visibility: hidden;    /* Internet Explorer */ -webkit-perspective: 0; -webkit-transform: translate3d(0, 0, 0); visibility: visible; }
 
 /*弹出层遮罩div*/
-.black_overlay {
-    display: none;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index: 988;
-    -moz-opacity: 0.5;
-    opacity: .50;
-    filter: alpha(opacity=50);
-}
+.black_overlay { display: none; position: absolute; top: 0%; left: 0%; bottom: 0; right: 0; width: 100%; height: 100%; background-color: #000; z-index: 988; -moz-opacity: 0.5; opacity: .50; filter: alpha(opacity=50); }
+.btn { display: block; cursor: pointer; }
+.pos { position: absolute; }
+.fl { float: left; }
+.fr { float: right; }
+.w750 { width: 100%; }
+.curp { cursor: pointer; }
+.imgcove { width: 100%; height: 100%; display: block; border: none; }
+.yellow { color: #ffd800; }
+.hide { display: none; }
+.show { display: block; }
+.zIndex2 { z-index: 9; position: relative; }
 
-.btn {
-    display: block;
-    cursor: pointer;
-}
-
-.pos {
-    position: absolute;
-}
-
-.fl {
-    float: left;
-}
-
-.fr {
-    float: right;
-}
-
-.w750 {
-    width: 100%;
-}
-
-.curp {
-    cursor: pointer;
-}
-
-.imgcove {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border: none;
-}
-
-.yellow {
-    color: #ffd800;
-}
-
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
-.zIndex2 {
-    z-index: 9;
-    position: relative;
-}
 /*app*/
-#wrap {
-    position: relative;
-    overflow: hidden;
-    max-width: 7.5rem;
-    margin: 0 auto;
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-}
-
+#wrap { position: relative; overflow: hidden; max-width: 7.5rem; margin: 0 auto; height: 100vh; height: calc(var(--vh, 1vh) * 100); }
 
 /*loading*/
-.loading {
-    width: 7.5rem;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    margin-left: -3.75rem;
-    overflow: hidden;
-    background: url(../images/bg.jpg) no-repeat 0 0 / 100% 13.34rem;
-    z-index: 9;
-}
+.loading { width: 7.5rem; height: 100%; position: fixed; top: 0; left: 50%; margin-left: -3.75rem; overflow: hidden; background: url(../images/bg.jpg) no-repeat 0 0 / 100% 13.34rem; z-index: 9; }
 
 /*进度条*/
-.progress_wrap {
-    width: 6.6rem;
-    height: .58rem;
-    position: absolute;
-    background: url(../images/loading/progress_wrap.png) no-repeat 0 0 / 100% 100%;
-    overflow: hidden;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.progress {
-    width: 1rem;
-    height: 0.38rem;
-    border-radius: 0.18rem;
-    top: 0.09rem;
-    left: 0.09rem;
-    position: relative;
-    background-color: #fcdf71;
-    background-size: 1rem 1rem;
-    background-image: linear-gradient(to bottom, #fcdf71, rgba(255, 129, 61, 1) 50%, transparent 60%, #ff813d);
-}
-
-.progress span {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    border-radius: 0.18rem;
-    background: url(../images/loading/progress.png) 0 center repeat;
-    -webkit-animation: warning-animation 2s infinite linear;
-    -moz-animation: warning-animation 2s infinite linear;
-    animation: warning-animation 2s infinite linear;
-}
-
+.progress_wrap { width: 6.6rem; height: .58rem; position: absolute; background: url(../images/loading/progress_wrap.png) no-repeat 0 0 / 100% 100%; overflow: hidden; top: 60%; left: 50%; transform: translate(-50%, -50%); }
+.progress { width: 6.4rem; height: 0.38rem; border-radius: 0.18rem; top: 0.09rem; left: 0.09rem; position: relative; background-color: #fcdf71; background-size: 1rem 1rem; background-image: linear-gradient(to bottom, #fcdf71, rgba(255, 129, 61, 1) 50%, transparent 60%, #ff813d); }
+.progress span { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%;
+border-radius: 0.18rem; background: url(../images/loading/progress.png) 0 center repeat;
+-webkit-animation: warning-animation 5s infinite linear;
+-moz-animation: warning-animation 5s infinite linear;
+animation: warning-animation 5s infinite linear; }
 @-webkit-keyframes warning-animation {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 3em 0;
-    }
-
+    0% { background-position: 0 0; }
+    100% { background-position: 2em 0; }
 }
-
 @-moz-keyframes warning-animation {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 3em 0;
-    }
-
+    0% { background-position: 0 0; }
+    100% { background-position: 3em 0; }
 }
-
 @keyframes warning-animation {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 3em 0;
-    }
-
+    0% { background-position: 0 0; }
+    100% { background-position: 2em 0; }
 }
 
 /*旗子*/
-.top_qizi{
-    width:7.5rem;
-    height: 1.2rem;
-    background: url(../images/top_qizi.png) no-repeat 0 0 / 100% 100%;
-}
+.top_qizi { width: 7.5rem; height: 1.2rem; background: url(../images/top_qizi.png) no-repeat 0 0 / 100% 100%; }
 
 /*logo*/
-.logo{
-    width:5.18rem;
-    height: 2.12rem;
-    background: url(../images/logo.png) no-repeat 0 0 / 100% 100%;
-    position: absolute;
-    top:1.7rem;
-    left: 50%;
-    transform: translate(-50%,0);
-}
+.logo { width: 5.18rem; height: 2.12rem; background: url(../images/logo.png) no-repeat 0 0 / 100% 100%; position: absolute; top: 1.7rem; left: 50%; transform: translate(-50%, 0); }
 
 /*花海*/
-.flowers{
-    width: 12.06rem;
-    height: 3.2rem;
-    /*background: red;*/
-    position: absolute;
-    left: 50%;
-    margin-left: -6.02rem;
-    bottom: 0.25rem;
-}
-.flowers:after{
-    content: '';
-    display: block;
-    width:7.5rem;
-    height: 0.54rem;
-    background: url(../images/flowers1.png) no-repeat 0 0 / 100% 100%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3.75rem;
-    z-index: 5;
-}
+.flowers { width: 12.06rem; height: 3.2rem;    /*background: red;*/ position: absolute; left: 50%; margin-left: -6.02rem; bottom: 0.25rem; }
+.flowers:after { content: ''; display: block; width: 7.5rem; height: 0.54rem; background: url(../images/flowers1.png) no-repeat 0 0 / 100% 100%; position: absolute; bottom: 0; left: 50%; margin-left: -3.75rem; z-index: 5; }
+.flsh2 { width: 12.06rem; height: 1.9rem; background: url(../images/flowers2.png) repeat-x 0 0 / 100% 100%; position: absolute; bottom: 0; z-index: 4; animation: flowersBgMove ease-in-out 10s infinite alternate; -webkit-animation: flowersBgMove ease-in-out 10s infinite alternate;    /* Safari 与 Chrome */ animation-delay: 300ms }
+.flsh3 { width: 12.06rem; height: 2.3rem; background: url(../images/flowers3.png) repeat-x 0 0 / 100% 100%; position: absolute; bottom: 0; z-index: 3; animation: flowersBgMove ease-in-out 11s infinite alternate-reverse; -webkit-animation: flowersBgMove ease-in-out 11s infinite alternate-reverse;    /* Safari 与 Chrome */ animation-delay: 300ms }
+.flsh4 { width: 12.06rem; height: 3.46rem; background: url(../images/flowers4.png) repeat-x 0 0 / 100% 100%; position: absolute; bottom: 0; z-index: 2; animation: flowersBgMove ease-in-out 12s infinite alternate; -webkit-animation: flowersBgMove ease-in-out 12s infinite alternate;    /* Safari 与 Chrome */ animation-delay: 300ms }
+.flsh5 { width: 12.06rem; height: 3.44rem; background: url(../images/flowers5.png) repeat-x 0 0 / 100% 100%; position: absolute; bottom: 0; z-index: 1; animation: flowersBgMove ease-in-out 13s infinite alternate-reverse; -webkit-animation: flowersBgMove ease-in-out 13s infinite alternate-reverse;    /* Safari 与 Chrome */ animation-delay: 300ms }
 
-.flsh2{
-    width: 12.06rem;
-    height:1.9rem;
-    background: url(../images/flowers2.png) repeat-x 0 0 / 100% 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: 4;
-    animation: flowersBgMove ease-in-out 10s infinite alternate;
-    -webkit-animation: flowersBgMove ease-in-out 10s infinite alternate; /* Safari 与 Chrome */
-    animation-delay: 300ms
-}
-.flsh3{
-    width: 12.06rem;
-    height:2.3rem;
-    background: url(../images/flowers3.png) repeat-x 0 0 / 100% 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: 3;
-    animation: flowersBgMove ease-in-out 11s infinite alternate-reverse;
-    -webkit-animation: flowersBgMove ease-in-out 11s infinite alternate-reverse; /* Safari 与 Chrome */
-    animation-delay: 300ms
-}
-.flsh4{
-    width: 12.06rem;
-    height:3.46rem;
-    background: url(../images/flowers4.png) repeat-x 0 0 / 100% 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: 2;
-    animation: flowersBgMove ease-in-out 12s infinite alternate;
-    -webkit-animation: flowersBgMove ease-in-out 12s infinite alternate; /* Safari 与 Chrome */
-    animation-delay: 300ms
-}
-.flsh5{
-    width: 12.06rem;
-    height:3.44rem;
-    background: url(../images/flowers5.png) repeat-x 0 0 / 100% 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
-    animation: flowersBgMove ease-in-out 13s infinite alternate-reverse;
-    -webkit-animation: flowersBgMove ease-in-out 13s infinite alternate-reverse; /* Safari 与 Chrome */
-    animation-delay: 300ms
-}
 /*数*/
-.foo_shu{
-    width:7.5rem;
-    height: 2.72rem;
-    background: url(../images/loading/shu.png) no-repeat 0 0 / 100% 100%;
-    position: absolute;
-    left: 50%;
-    margin-left: -3.75rem;
-    bottom: 0;
-    z-index: 9;
-}
-
+.foo_shu { width: 7.5rem; height: 2.72rem; background: url(../images/loading/shu.png) no-repeat 0 0 / 100% 100%; position: absolute; left: 50%; margin-left: -3.75rem; bottom: 0; z-index: 9; }
 
 /*跑动露西亚*/
-/*#loading_hero{
-    width: 2.8rem;
-    height: 2.8rem;
-    position: absolute;
-    top:49%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}*/
+#loading_hero { width: 2.8rem; height: 2.8rem; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); }
 
-#loading_hero canvas{
-    position: absolute;
-    top: 0.3rem;
-    left: 0;
+@keyframes flowersBgMove {
+    from { background-position: 2rem 0; }
+    to { background-position: -2.0rem 0; }
 }
-
-@keyframes flowersBgMove
-{
-    from {background-position: 2rem 0;}
-    to {background-position: -2.0rem 0;}
+@-webkit-keyframes flowersBgMove {
+    from { background-position: 2rem 0; }
+    to { background-position: -2.0rem 0; }
 }
-@-webkit-keyframes flowersBgMove
-{
-    from {background-position: 2rem 0;}
-    to {background-position: -2.0rem 0;}
-}
-
 
 /*即: 设备屏幕可见宽度为375px， 可见高度为812px及设备像素比为3*/
-@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
-}
+@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) { }
 
 /*//iphone Xs Max*/
-@media only screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:3) {
-}
+@media only screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:3) { }
 
 /*//iphone XR*/
-@media only screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2) {
-}
+@media only screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2) { }
 
 /* 兼容iphone5 */
-@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2) {
-}
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2) { }
 
 /*兼容iphone6，iphone7，iphone8s*/
-@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2) {
-}
+@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2) { }
 
 /*兼容iphone6 Plus,iphone7 Plus,iphone8 Plus*/
-@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2) {
-}
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2) { }
