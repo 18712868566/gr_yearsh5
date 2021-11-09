@@ -2,7 +2,7 @@
  * @Author: A
  * @Date:   2021-06-30 14:08:32
  * @Last Modified by:   A
- * @Last Modified time: 2021-11-08 18:48:33
+ * @Last Modified time: 2021-11-09 17:22:21
  */
 
 
@@ -13,24 +13,45 @@ $(function() {
     $(document).on("click", "#alertInfo .close,.close,.confirm,.pop-comm .pop_close,.pop_close_maskLayer,.pop_sjz", dialog.closeDiv);
 
     // 整体结构
-    var swiper_global = new Swiper('#global.swiper-container', {
-        direction: 'vertical',
-        noSwiping: true,
-        keyboard: true, // 设置开启键盘来控制Swiper切换。
-        followFinger: false, //跟随手指。如设置为false，手指滑动时slide不会动，当你释放时slide才会切换。
-        speed: 800,
-        slidesPerView: "auto",
-        resizeObserver: true, // 来监测swiper的container大小变化。
-        initialSlide: 3,
-        mousewheel: true, // 开启鼠标滚轮
-        observer: true, // 监听 发生变化时 初始化
-        observeParents: true, // 监听 发生变化时 初始化
-        observeSlideChildren: true, // 子slide更新时，swiper是否更新。
-        on: {
-            resize: function() {
-                this.update(); //窗口变化时，更新Swiper的一些属性，如宽高等
-            }
-        }
+    // var swiper_global = new Swiper('#global.swiper-container', {
+    //     direction: 'vertical',
+    //     noSwiping: true,
+    //     keyboard: true, // 设置开启键盘来控制Swiper切换。
+    //     followFinger: false, //跟随手指。如设置为false，手指滑动时slide不会动，当你释放时slide才会切换。
+    //     speed: 800,
+    //     slidesPerView: "auto",
+    //     resizeObserver: true, // 来监测swiper的container大小变化。
+    //     initialSlide: 3,
+    //     mousewheel: true, // 开启鼠标滚轮
+    //     observer: true, // 监听 发生变化时 初始化
+    //     observeParents: true, // 监听 发生变化时 初始化
+    //     observeSlideChildren: true, // 子slide更新时，swiper是否更新。
+    //     on: {
+    //         resize: function() {
+    //             this.update(); //窗口变化时，更新Swiper的一些属性，如宽高等
+    //         }
+    //     }
+    // });
+
+    $('.btn_play').on('click', function(event) {
+        event.preventDefault();
+        //登录
+        dialog.alertPopLogin();
+
+        // 登录错误 从新输入
+        // dialog.alertPopLoginError();
+    });
+
+    // 活动规则
+    $('.btn_gz').on('click', function(event) {
+        event.preventDefault();
+        dialog.alertPopHDGZ();
+    });
+
+    // 报酬
+    $('.btn_lott').on('click', function(event) {
+        event.preventDefault();
+        dialog.alertPopHDGZ_yh();
     });
 });
 
@@ -57,6 +78,17 @@ function argumentsTabs(tabList, tabbox, index = 0) {
 
 
 
+
+
+
+
+//设置别名
+let TextureCache = PIXI.utils.TextureCache; // 存储缓存纹理
+let Texture = PIXI.Texture;
+let Rectangle = PIXI.Rectangle;
+let AnimatedSprite = PIXI.extras.AnimatedSprite;
+
+// 获取父元素宽高
 let loading_hero_w = document.getElementById('loading_hero').clientWidth;
 let loading_hero_h = document.getElementById('loading_hero').clientHeight;
 
@@ -83,29 +115,27 @@ let playground = document.getElementById('loading_hero');
 // 把 Pixi 创建的 canvas 添加到页面上
 playground.appendChild(renderer.view);
 
-//设置别名
-let TextureCache = PIXI.utils.TextureCache; // 存储缓存纹理
-let Texture = PIXI.Texture;
-let Rectangle = PIXI.Rectangle;
-let AnimatedSprite = PIXI.extras.AnimatedSprite;
-
-//需要加载的雪碧图的地址（该图片服务器端已做跨域处理）
+//需要加载的雪碧图的地址
 let imgURL = "../images/hero/露西亚-红莲/露西亚-红莲-走路/lxy_hl_move.png";
 // let imgURL ='https://www.kkkk1000.com/images/learnPixiJS-AnimatedSprite/dnf.png'
 
 //加载图像，加载完成后执行setup函数
 PIXI.loader.add(imgURL).load(setup);
 
+// 精灵
+let pixie;
 
 function setup() {
     //叫 SpriteUtilities 的库，该库包含许多有用的函数，用于创建Pixi精灵并使它们更易于使用。
     let su = new SpriteUtilities(PIXI);
+
+    console.log(su)
     //创建纹理数组
     let frames = su.filmstrip(imgURL, 280, 280);
     // let frames = su.filmstrip(imgURL, 80, 143);
 
     //创建动画精灵
-    let pixie = new PIXI.extras.AnimatedSprite(frames);
+    pixie = new PIXI.extras.AnimatedSprite(frames);
 
     //Change the sprite's size
     pixie.width = loading_hero_w;
@@ -119,10 +149,3 @@ function setup() {
     //播放动画精灵
     pixie.play();
 }
-
-
-
-window.addEventListener("resize", function(event) {
-    app.renderer.resize(loading_hero_w, loading_hero_h);
-});
-

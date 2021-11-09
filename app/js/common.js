@@ -13,8 +13,7 @@ dialog = {
         }, "fast", function() {
             $("#maskLayer,#alertInfo").remove().hide();
             $('.wrap').removeClass('row');
-            $('.yqh').hide();
-
+            // $('.yqh').hide();
             setTimeout(function() {
                 // 获得奖励弹框
                 istureZunj = 0;
@@ -95,13 +94,14 @@ dialog = {
             "<div class='pop_warp popVideo'>" +
             "<div class='before dialog-iframe'>"
             // +"<embed src='"+videoUrl+"' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true' wmode='opaque'>"
-            +"<iframe border='0' marginwidth='0' framespacing='0' marginheight='0' src='" + videoUrl + "' frameborder='0' noresize='scrolling='no' width='100%' height='100%' vspale='0' id='iframe' name='iframe' allowfullscreen></iframe>" +
+            +
+            "<iframe border='0' marginwidth='0' framespacing='0' marginheight='0' src='" + videoUrl + "' frameborder='0' noresize='scrolling='no' width='100%' height='100%' vspale='0' id='iframe' name='iframe' allowfullscreen></iframe>" +
             // + '<video src="' + videoUrl + '" autoplay="autoplay" playsinline="" webkit-playsinline="" x5-playsinline="" controls="controls"></video>' +
             "</div>" +
             "</div>")
     },
     // 获得奖励弹框
-    alertPopGameLott(imgUrl,code,lottname) {
+    alertPopGameLott(imgUrl, code, lottname) {
         var lottHtml = `
         <div class="pop_yuliu_wrap">
             <div class="lott_code">
@@ -125,7 +125,7 @@ dialog = {
             </div>
         </div>`)
     },
-    alertPopGameLottTow(imgUrl,lottName) {
+    alertPopGameLottTow(imgUrl, lottName) {
         var lottHtml = `
         <div class="pop_shiwu">
             <div class="lott_code">
@@ -183,7 +183,7 @@ dialog = {
         var lottHtml = '';
         var lottDdHtml = '';
         for (var i = 0; i < lottDataHtml.length; i++) {
-            var getTime =  timestampToTime(lottDataHtml[i].created_at);
+            var getTime = timestampToTime(lottDataHtml[i].created_at);
             var prizeName;
             if (lottDataHtml[i].gift_id == '836') {
                 prizeName = '鑽石*66';
@@ -217,12 +217,12 @@ dialog = {
                 prizeName = '藍牙耳麥';
             }
 
-            lottDdHtml +=`<dl class='dl_lists'><dd><span>${getTime}</span><span>${prizeName}</span> <p class="copy_target" id='dum${i+1}'>${lottDataHtml[i].gift_code}</p></dd>
+            lottDdHtml += `<dl class='dl_lists'><dd><span>${getTime}</span><span>${prizeName}</span> <p class="copy_target" id='dum${i+1}'>${lottDataHtml[i].gift_code}</p></dd>
                         <i class='copyele' data-arrtId="dum${i+1}">COPY</i></dl>`;
 
 
             if (lottDataHtml[i].gift_id == '841' || lottDataHtml[i].gift_id == '842' || lottDataHtml[i].gift_id == '843') {
-                lottDdHtml +=`<dl class='dl_lists'><dd><span>${getTime}</span><span>${prizeName}</span> </dd>
+                lottDdHtml += `<dl class='dl_lists'><dd><span>${getTime}</span><span>${prizeName}</span> </dd>
                             <a href="mailto:crisisaction@herogame.com.tw" class='line_kefu'>联系客服</a></dl>`;
             }
         };
@@ -239,9 +239,39 @@ dialog = {
 
         $(".dhm").mCustomScrollbar();
     },
+    // cbd登录
+    alertPopLogin() {
+        var LoginHtml = `
+            <input type="text" class="loadNum pop_sprite" placeholder="指揮官IDを入力">
+            <a href="javascript:;" class="btn btn_login pop_sprite"></a>
+        `;
+
+        dialog.showInfo(`<div class="pop pop_login pop_sprite">
+            <div class="borbox">
+                ${LoginHtml}
+            </div>
+        </div>`)
+    },
+    // cbd登录Error
+    alertPopLoginError() {
+        var LoginHtml = `
+            <a href="javascript:;" class="btn btn_login_error pop_sprite"></a>
+        `;
+
+        dialog.showInfo(`<div class="pop pop_login_error pop_sprite">
+            <div class="borbox">
+                ${LoginHtml}
+            </div>
+        </div>`)
+    },
+
     // facebook登陆
     alertPopFbLogin() {
-        var fbLoginHtml = `<h2>溫馨提示</h2><h3>抽獎的話，需要先登錄Facebook喲！</h3><a href="https://ca.herogames.com.tw/six-years/auth.html?authclient=facebook" class="btn btn_login"></a> `;
+        var fbLoginHtml = `
+            <h2>溫馨提示</h2>
+            <h3>抽獎的話，需要先登錄Facebook喲！</h3>
+            <a href="https://ca.herogames.com.tw/six-years/auth.html?authclient=facebook" class="btn btn_login"></a>
+        `;
 
         dialog.showInfo(`<div class="pop pop_fblogin">
             <div class="borbox">
@@ -250,45 +280,34 @@ dialog = {
         </div>`)
     },
     // 活动规则
-    alertPopHDGZ:function(){
+    alertPopHDGZ: function() {
         var lottHtml = `
-        <div class="pop_hdgz">
-            <div class="pop_hdgz_cc">
-                <h2>活動規則</h2>
+        <div class="pop_hdgz pop_sprite">
+            <div class="pop_hdgz_cc ">
+                <p>指揮官様の着任1周年を記念して、空中庭園パーソナルデータシステムを開放いたします。 本データシステムでは指揮官様の着任以来の各種データをご覧いただけます。さらにデータを閲覧された指揮官は報酬を獲得できます。</p>
 
-                <p>1、指揮官填寫正確的手機號碼並選擇想要通訊的構造體，確認資訊無誤後可透過「預約通訊」按鈕完成預約。</p>
-                <p>2、完成預約的指揮官將有機會在8/28通訊時間內收到指定構造體的電話通訊。</p>
+                <dl>
+                    <dt>■データ閲覧期間：</dt>
+                    <dd>2021年12月4日（土）12:00～2022年1月12日（水）12:00</dd>
+                </dl>
+                <dl>
+                    <dt>■データ閲覧方法：</dt>
+                    <dd>トップページの「データ閲覧」をタップして指揮官IDを入力してください。</dd>
+                    <dd>※指揮官IDはパニグレのログイン画面右上に表示される9桁の数字です。</dd>
+                </dl>
+                <dl>
+                    <dt>■データ閲覧対象：</dt>
+                    <dd>2021年11月25日（木）までにアカウントを作成した指揮官様</dd>
+                </dl>
+                <dl>
+                    <dt>■データ閲覧報酬：</dt>
+                    <dd>2021年11月25日（木）までにアカウントを作成した指揮官様と、それ以降にアカウントを作成された指揮官様のいずれも報酬をお受取りいただけます。詳しくは＜こちら＞をご覧ください。</dd>
+                </dl>
 
-                <h2>預約時間</h2>
-                <p>7/16(五)12:00 - 8/16(一)23:59</p>
-
-                <h2>通訊時間</h2>
-                <p>8/28(六)17:00 - 21:59</p>
-
-                <h2>注意事項</h2>
-                <p>1、活動期間，每個FB帳號僅能預約一次，一旦完成預約將無法修改或撤回。請指揮官仔細核對資訊，確保無誤後再提交預約。</p>
-                <p>2、8/28通訊時間內，請指揮官保持手機暢通，以免錯過構造體來電。</p>
-                <p>3、若對活動有任何疑問，歡迎指揮官私訊粉絲團詢問。</p>
-
-                <h2>構造體CV</h2>
-                <p>露西亞（CV：小N）</p>
-                <p>α（CV：小N）</p>
-                <p>比安卡（CV：云鹤追）</p>
-                <p>麗芙（CV：多多poi）</p>
-                <p>七實（CV：赵爽）</p>
-                <p>里（CV：夏侯落枫）</p>
-                <p>卡列尼娜（CV：花玲）</p>
-                <p>神威（CV：DK）</p>
-                <p>羅塞塔（CV：贺文潇）</p>
-                <p>曲（CV：叶知秋）</p>
-                <p>卡穆（CV：DK）</p>
-                <p>常羽（CV：KINSEN）</p>
-                <p>薇拉（CV：江月）</p>
-                <p>庫洛姆（CV：大白）</p>
-                <p>蘇菲亞（CV：蔡娜）</p>
-                <p>渡邊（CV：森中人）</p>
-                <p>艾拉（CV：巩大方）</p>
-                <p>露娜（CV：皛四白）</p>
+                <dl>
+                    <dt>■ご注意：</dt>
+                    <dd>パーソナルデータは何度でも閲覧可能ですが、報酬受取りはお一人様1回限定となります。</dd>
+                </dl>
             </div>
         </div>
          `;
@@ -302,22 +321,171 @@ dialog = {
         $(".pop_hdgz_cc").mCustomScrollbar();
     },
     // 活动规则2
-    alertPopHDGZ_yh:function(){
+    alertPopHDGZ_yh: function() {
         var lottHtml = `
-            <div class="pop_hdgz_yh">
-                <div class="pop_hdgz_cc">
-                    <h2>活動規則</h2>
+            <div class="pop_hdgz_yh pop_sprite">
+                <div class="pop_hdgz_ccc">
+                    <dl>
+                        <dt>＜ベテラン指揮官向け＞</dt>
+                        <dd>■パニグレ1周年データ閲覧報酬</dd>
+                        <dd>
+                            対象：<br>
+                            2021年XX月XX日（X）までにアカウントを作成し、なおかつパーソナルデータを閲覧された指揮官様
+                        </dd>
+                    </dl>
 
-                    <p>1、指揮官填寫正確的手機號碼並選擇想要通訊的構造體，確認資訊無誤後可透過「預約通訊」按鈕完成預約。</p>
-                    <p>2、完成預約的指揮官將有機會在8/28通訊時間內收到指定構造體的電話通訊。</p>
+                    <dl>
+                        <dt>報酬配布期間：</dt>
+                        <dd>2021年12月4日（土）12：00～2022年1月12（水）12：00</dd>
+                    </dl>
+                    <dl>
+                        <dt>報酬内容：</dt>
+                        <dd><img src="images/pop/1.png" alt=""></dd>
+                    </dl>
+                    <dl>
+                        <dt>報酬受取方法:</dt>
+                        <dd>①TOPページの「TOUCH HERE」をタップして8桁の指揮官IDを入力すると、パーソナルデータ閲覧画面に遷移します。</dd>
+                        <dd>※指揮官IDはパニグレにログイン後のメイン画面左上に表示される8桁の数字です。</dd>
+                        <dd>※パニグレアプリ内バナーから本サイトにアクセスする場合は、バナーをタップすると指揮官IDを自動的に取得し、本サイトのパーソナルデータ閲覧画面に直接遷移します。</dd>
+                        <dd>②パーソナルデータを閲覧後、データ閲覧画面下の「閲覧報酬受取り」ボタンをタップすると、パニグレのアプリが起動します。</dd>
+                        <dd>③パニグレにログインして、メールボックスより報酬をお受取りください。</dd>
+                    </dl>
 
-                    <h2>活動時間</h2>
-                    <p>7/16(五)12:00 - 8/16(一)23:59</p>
+                     <dl>
+                        <dt>
+                        ■パニグレ1周年データシェア報酬
+                        </dt>
+                        <dd>対象：<br>
+                        2021年XX月XX日（X）までにアカウントを作成し、なおかつパニグレ公式Twitterアカウント（@punigray_staff）をフォローして、パーソナルデータをTwitterでシェアした指揮官様
+                        </dd>
+                     </dl>
+                    <dl>
+                        <dt>報酬配布期間：</dt>
+                        <dd>2021年12月4日（土）12：00～2022年1月12（水）12：00</dd>
+                    </dl>
+                    <dl>
+                        <dt>報酬内容：</dt>
+                        <dd><img src="images/pop/2.png" alt=""></dd>
+                    </dl>
+                    <dl>
+                        <dt> 報酬受取方法：</dt>
+                        <dd>①パーソナルデータを閲覧後、データ閲覧画面下の「Twitterでシェア」ボタンをタップし、生成される画像を「#パニグレ1周年」「#パニグレ指揮官データシェア」をつけてツイートしてください</dd>
+                        <dd>②パニグレにログインして、メールボックスより報酬をお受取りください。</dd>
+                    </dl>
 
-                    <h2>注意事項</h2>
-                    <p>1、活動期間，每個FB帳號僅能預約一次，一旦完成預約將無法修改或撤回。請指揮官仔細核對資訊，確保無誤後再提交預約。</p>
-                    <p>2、8/28通訊時間內，請指揮官保持手機暢通，以免錯過構造體來電。</p>
-                    <p>3、若對活動有任何疑問，歡迎指揮官私訊粉絲團詢問。</p>
+
+                    <dl>
+                        <dt>＜新人指揮官向け＞</dt>
+                        <dd> ■パニグレ1周年新任報酬</dd>
+                        <dd>
+                            対象：<br>
+                            2021年XX月XX日（X）以降にアカウントを作成し、なおかつ指揮官IDを本データシステムに入力された指揮官様
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>報酬配布期間：</dt>
+                        <dd>2021年12月4日（土）12：00～2022年1月12（水）12：00</dd>
+                    </dl>
+
+                    <dl>
+                        <dt>報酬内容：</dt>
+                        <dd><img src="images/pop/3.png" alt=""></dd>
+                    </dl>
+
+                    <dl>
+                        <dt>報酬受取方法：</dt>
+                        <dd>①TOPページの「TOUCH HERE」をタップして8桁の指揮官IDを入力すると、新任指揮官向けのメッセージ画面に遷移します。</dd>
+                        <dd>※指揮官IDはパニグレにログイン後のメイン画面左上に表示される8桁の数字です。</dd>
+                        <dd>※パニグレアプリ内バナーから本サイトにアクセスする場合は、バナーをタップすると指揮官IDを自動的に取得し、本サイトの新任指揮官向け画面に直接遷移します。</dd>
+                        <dd>②新任指揮官向け画面下の「閲覧報酬受取り」ボタンをタップすると、パニグレのアプリが起動します。</dd>
+                        <dd>③パニグレにログインして、メールボックスより報酬をお受取りください。    </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>■パニグレ1周年新任シェア報酬</dt>
+                        <dd>
+                            対象：<br>
+                            2021年XX月XX日（X）以降にアカウントを作成し、パニグレ公式Twitterアカウント（@punigray_staff）をフォローして、本キャンペーン情報をTwitterでシェアした指揮官様
+                        </dd>
+                    </dl>
+
+
+                    <dl>
+                        <dt>報酬配布期間：</dt>
+                        <dd>2021年12月4日（土）12：00～2022年1月12（水）12：00</dd>
+                    </dl>
+
+
+                    <dl>
+                        <dt>報酬内容：</dt>
+                        <dd><img src="images/pop/4.png" alt=""></dd>
+                    </dl>
+
+
+
+                    <dl>
+                        <dt>報酬受取方法：</dt>
+                        <dd>①新任指揮官向け画面下の「Twitterでシェア」ボタンをタップし、生成される画像を「#パニグレ1周年」「#パニグレ新任シェア」をつけてツイートしてください。</dd>
+                        <dd>②パニグレにログインして、メールボックスより報酬をお受取りください。</dd>
+                    </dl>
+
+                    <dl>
+                        <dt>＜ベテラン指揮官＆新人指揮官共通＞</dt>
+                        <dd>■パニグレ1周年Twitter抽選報酬</dd>
+                        <dd>対象：<br>「パニグレ1周年データシェア報酬」または「パニグレ1周年新任シェア報酬」の報酬受取条件を満たす指揮官様</dd>
+                    </dl>
+
+                    <dl>
+                        <dt>報酬内容：</dt>
+                        <dt>【特賞 1名様】　</dt>
+                        <dd>石川由依さんサイン色紙×1、オリジナル・サウンドトラックVol.1×1、Amazonギフト券30000円</dd>
+                        <dd>ルシア・鴉羽のSP塗装「朱鷺色雲」×1とアイコン「朱鷺色雲」×1、ビアンカ・真理のSP塗装「幽趣佳境」×1とアイコン「幽趣佳境」×1、指定武器開発券2500枚、特別構造体開発券2500枚</dd>
+                    </dl>
+
+                    <dl>
+                        <dt>【一等賞 5名様】　</dt>
+                        <dd>オリジナル・サウンドトラックVol.1×1、Amazonギフト券10000円</dd>
+                        <dd>ルシア・鴉羽のSP塗装「朱鷺色雲」×1とアイコン「朱鷺色雲」×1もしくはビアンカ・真理のSP塗装「幽趣佳境」×1とアイコン「幽趣佳境」×1（ランダムでいずれか1種類）、指定武器開発券2500枚もしくは特別構造体開発券2500枚（ランダムでいずれか1種類）</dd>
+                    </dl>
+
+                    <dl>
+                        <dt>【二等賞 8名様】　</dt>
+                        <dd>パニグレ公式グッズ-ちびキャラアクリルスタンド×1（ランダムでいずれか1種類）、Amazonギフト券5000円</dd>
+                        <dd>ルシア・鴉羽のSP塗装「朱鷺色雲」×1とアイコン「朱鷺色雲」×1もしくはビアンカ・真理のSP塗装「幽趣佳境」*1とアイコン「幽趣佳境」×1（ランダムでいずれか1種類）</dd>
+                    </dl>
+
+                    <dl>
+                        <dt>【三等賞　8名様】</dt>
+                        <dd>パニグレ公式グッズ-ちびキャラアクリルスタンド×1（ランダムでいずれか1種類）、Amazonギフト券3000円</dd>
+                        <dd>指定武器開発券2500枚もしくは特別構造体開発券2500枚（ランダムでいずれか1種類）</dd>
+                    </dl>
+
+                    <dl>
+                        <dt>【四等賞 10名様】</dt>
+                        <dd>パニグレ公式グッズ-缶バッジ*1（ランダムで1件）、Amazonギフト券2000円</dd>
+                        <dd>指定武器開発券1250枚もしくは特別構造体開発券1250枚（ランダムでいずれか1種類）</dd>
+                    </dl>
+
+
+                    <dl>
+                        <dt>【五等賞 30名様】　</dt>
+                        <dd>Amazonギフト券1000円</dd>
+                    </dl>
+                    <dl>
+                        <dt>参加方法：</dt>
+                        <dd>2021年12月4日（土）12：00～2022年1月12（水）12：00に「パニグレ1周年データシェア報酬」または「パニグレ1周年新任シェア報酬」の条件を満たすツイートを投稿し、なおかつパニグレ公式Twitter（＠punigray_staff）をフォローしている指揮官様から抽選で当選者を決定し、イベント終了後10営業日以内にTwitterのDMでご当選者様までご連絡いたします。</dd>
+                    </dl>
+
+
+
+                    <dl>
+                        <dt>■ご注意</dt>
+                        <dd>①「パニグレ1周年データ閲覧報酬」「パニグレ1周年データシェア報酬」「パニグレ1周年新任報酬」「パニグレ1周年新任シェア報酬」の受取期限は2022年1月31日（月）です。期限を過ぎると報酬を受け取れなくなりますのでご注意ください。</dd>
+                        <dd>②「パニグレ1周年Twitter抽選報酬」の発送先は日本国内に限定させていただきます。</dd>
+                        <dd>③「パニグレ1周年Twitter抽選報酬」はパニグレ公式Twitter（＠punigray_staff）よりご当選者様にDMでご連絡いたします。パニグレ公式Twitterをフォローしていない、またはDMを受け取れる設定になっていない指揮官様は抽選対象外とさせていただきますので、予めご了承ください。</dd>
+                    </dl>
+
 
                 </div>
             </div>
@@ -329,7 +497,7 @@ dialog = {
         </div>`)
 
 
-        $(".pop_hdgz_cc").mCustomScrollbar();
+        $(".pop_hdgz_ccc").mCustomScrollbar();
     },
 }
 

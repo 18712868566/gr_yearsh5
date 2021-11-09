@@ -1,0 +1,186 @@
+/*
+* @Author: A
+* @Date:   2021-11-09 14:04:00
+* @Last Modified by:   A
+* @Last Modified time: 2021-11-09 16:10:25
+*/
+
+/*=========================== dialog通用样式开始 ====================================*/
+#maskLayer {
+    display: none;
+    position: absolute;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    background: #040001;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+#alertInfo {
+    display: none;
+    background: rgba(255, 255, 255, 0);
+    left: 50%;
+    top: -100%;
+    position: absolute;
+    z-index: 10001;
+    width: 100%;
+    max-width: 7.5rem;
+}
+
+#alertInfo .close, .layer_close {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    font-size: 0;
+    text-indent: -999999px;
+    display: block;
+    cursor: pointer;
+    width:1.92rem;
+    height:1.34rem;
+    background: url(../images/pop/pop.png) no-repeat 0 0 / 7.02rem 20.06rem;
+    background-position: 0 0;
+    z-index: 220;
+    z-index: 1;
+}
+/* ==========弹出框========== */
+.pop { width: 100%; margin: 0 auto; position: relative; overflow: hidden; }
+
+
+/*pop弹出层图*/
+.pop_sprite{
+    background: url(../images/pop/pop.png) no-repeat 0 0 / 7.02rem 20.06rem;
+}
+
+/*fb*/
+.pop_login {
+    width:7.02rem;
+    height:3.62rem;
+    background-position: -0px -3.24rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.pop_login .borbox {
+    margin: 1.2rem auto 0;
+    text-align: center;
+}
+
+.pop_login .borbox  .loadNum{
+    width:5.04rem;
+    height:0.8rem;
+    background-position: 0 -1.34rem;
+    border: none;
+    text-align: center;
+    font-size: 0.4rem;
+    color: #bda582;
+}
+
+
+.pop_login .borbox .btn_login {
+    width:2.12rem;
+    height:0.7rem;
+    background-position: -4.04rem 0;
+    margin: 0.1rem auto 0;
+}
+
+
+input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: #bda582;
+}
+
+input::input-placeholder {
+    /* placeholder颜色  */
+    color: #bda582;
+}
+
+
+
+/*登录错误*/
+.pop_login_error{
+    width:7.02rem;
+    height:3.62rem;
+    background-position: -0px -16.44rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn_login_error{
+    width:2.12rem;
+    height:0.7rem;
+    background-position: -1.92rem 0;
+    position: absolute;
+    bottom: 0.45rem;
+    left: 50%;
+    margin-left: -1.06rem;
+}
+
+
+/*活动规则*/
+.pop_hdgz,.pop_hdgz_yh{
+    width:7.02rem;
+    height:9.58rem;
+    background-position: -0px -6.86rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.pop_hdgz_cc{
+    width: 86%;
+    height: 8rem;
+    overflow: hidden;
+    margin: 0.8rem auto 0;
+    padding-left: 0.3rem;
+    color: #563b14;
+    font-size: 0.26rem;
+}
+
+.pop_hdgz_cc p{
+    margin-bottom: 0.3rem;
+}
+
+.pop_hdgz_cc dl{
+    margin-bottom: 0.3rem;
+}
+
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+    background:#7b5d32;
+}
+
+
+/*规则2*/
+
+
+.pop_hdgz_ccc{
+    width: 86%;
+    height: 8rem;
+    overflow: hidden;
+    margin: 0.8rem auto 0;
+    padding-left: 0.3rem;
+    color: #563b14;
+    font-size: 0.26rem;
+}
+
+.pop_hdgz_ccc img{
+    width: 100%;
+}
+
+.pop_hdgz_ccc dl{
+    margin-bottom: 0.35rem;
+}
+.pop_hdgz_ccc dl dd img{
+    display: block;
+    margin-top: 0.35rem;
+}
+
+
