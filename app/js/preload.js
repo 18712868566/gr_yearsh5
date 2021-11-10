@@ -1,5 +1,5 @@
-/*
-* @Author: A
+
+/* @Author: A
 * @Date:   2021-11-09 11:15:13
 * @Last Modified by:   A
 * @Last Modified time: 2021-11-09 18:46:18
@@ -245,5 +245,5 @@ function preloadImg() {
     }
 }
 
-preloadImg();
-/*==============资源加载完毕===========*/
+// preloadImg();
+/*==============资源加载完毕===========

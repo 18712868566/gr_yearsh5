@@ -253,19 +253,6 @@ animation: warning-animation 5s infinite linear; }
     top: 0.78rem;
     left: 50%;
     margin-left: -3.4rem;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
 }
 
 .ball_cun,.ball_xia,.ball_qiu{
@@ -298,16 +285,28 @@ animation: warning-animation 5s infinite linear; }
 
 
 .txtYun .txts{
-    width: 70%;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
+    overflow: hidden;
 }
 .txtYun .txts p{
+    width: 70%;
     font-size: 0.4rem;
     color: #366783;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
-.txtYun .txts p span{
+.txtYun .txts p span:nth-child(1){
+    margin-bottom: 1.4rem;
+    display: block;
+}
 
+.txtYun .txts p span i{
+    color: #ffa14d;
 }
 
 
