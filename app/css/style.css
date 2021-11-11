@@ -300,12 +300,15 @@ animation: warning-animation 5s infinite linear; }
     transform: translate(-50%,-50%);
 }
 
+.txtYun .txts p span{
+    display: inline-block;
+}
 .txtYun .txts p span:nth-child(1){
     margin-bottom: 1.4rem;
     display: block;
 }
 
-.txtYun .txts p span i{
+.txtYun .txts p span i,.txtYun .txts p i{
     color: #ffa14d;
 }
 
