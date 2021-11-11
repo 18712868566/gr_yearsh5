@@ -5,9 +5,16 @@
  */
 
  const heros = {
-    app:null,
-    touchNum: 1,
-    staticURL:'../',
+    app:null,  // pixi
+    touchNum: 23, // 点击次数
+    staticURL:'../', // 本地调试路径
+    touchMoreId:4, // 摸头最多id
+    touchMoreNumber:88, // 摸头最多id
+    touchLessId:1, // 摸头最少id
+    touchLessNumber:56, // 摸头最多id
+    goPlayId:1, // 出站最多id
+    goPlayNumber:555, // 出站最多id
+    heroArrs:[],
     // 获取父元素宽高
     loading_hero_w : document.getElementById('loading_hero').clientWidth,
     loading_hero_h : document.getElementById('loading_hero').clientHeight
