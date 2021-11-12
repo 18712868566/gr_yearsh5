@@ -264,7 +264,29 @@ dialog = {
             </div>
         </div>`)
     },
+    // 领取报酬成功
+    alertPopLottend(){
+        const lottEndHtml = `
+        <div class="pop_hdgz pop_sprite">
+            <div class="pop_hdgz_cc ">
+                <p>空中庭園パーソナルデータシステムをご利用いただき、誠にありがとうございます。</p>
+                <p>指揮官様の健闘と貢献を称え、報酬を支給いたします。ぜひ今後の任務にお役立てください。</p>
+                <p>（報酬はゲーム内メールボックスに届きます。受取はお一人様1回限定です）</p>
+                <p>また本キャンペーン情報やパーソナルデータをTwitterでシェアするとシェア報酬がもらえ、さらに抽選で公式グッズやオリジナルサウンドトラックが当たるチャンスがあります。ぜひシェアをお願いします！</p>
 
+                <a href="javascript:layer.msg('打开游戏链接');" class="btn btn_openGame"></a>
+                <a href="javascript:layer.msg('');;" class="btn btn_share"></a>
+                <a href="javascript:;" class="btn btn_top"></a>
+            </div>
+        </div>
+         `;
+
+        dialog.showInfo(`<div class="pop pop_lott_end  pop_sprite">
+            <div class="borbox">
+                ${lottEndHtml}
+            </div>
+        </div>`)
+    },
     // facebook登陆
     alertPopFbLogin() {
         var fbLoginHtml = `

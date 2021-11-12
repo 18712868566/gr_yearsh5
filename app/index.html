@@ -56,7 +56,7 @@
 
             <!-- page1 -->
             <div class="page1 ">
-                 <!-- 彩旗 -->
+                <!-- 彩旗 -->
                 <div class="top_qizi"></div>
                 <!-- logo -->
                 <div class="logo"></div>
@@ -85,7 +85,7 @@
             <!-- page2 -->
             <div class="page2">
                 <!-- 云 -->
-                <div class="txtYun">
+                <div class="txtYun ">
                     <!-- 所有话语 -->
                     <div class="txts">
                         <!-- hero1 红莲-->
@@ -224,31 +224,44 @@
                 <!-- 精灵位置 -->
                 <div id="loading_hero"></div>
                 <!-- ball_cun -->
-                <div class="ball_cun"></div>
-                <!-- ball_xia -->
-                <div class="ball_xia"></div>
+                <div class="ball_cun rotate_ball "></div>
                 <!-- ball_qiu -->
-                <div class="ball_qiu"></div>
+                <div class="ball_qiu rotate_ball "></div>
+               <!-- ball_dong -->
+                <div class="ball_dong "></div>
+
+                <!-- 彩旗 -->
+                <div class="top_qizi hide"></div>
+                <!-- 按钮 -->
+                <div class="page2_footer_btns hide">
+                    <!-- 回到主界面 -->
+                    <p class="btn btn_top "> top </p>
+                    <!-- 奖励领取后变成分享 -->
+                    <p class="btn btn_goLott "> 领奖 </p>
+                    <!-- 生成分享海报 -->
+                    <p class="btn btn_share "> 分享 </p>
+                </div>
             </div>
 
 
         </div>
     </body>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/layer/dist/layer.js"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-
+    <script src="js/gsap.min.js"></script>
     <!-- ---------处理文字---------- -->
     <!-- <script src="js/textillate/jquery.fittext.js"></script> -->
     <!-- <script src="js/textillate/jquery.lettering.js"></script> -->
     <!-- <script src="js/textillate/jquery.textillate.js"></script> -->
     <!-- ---------处理文字end---------- -->
     <script src="js/preloadText.js"></script>
+    <script src="js/snow.js"></script>
 
     <script src="js/common.js"></script>
     <script src="js/pixi.js"></script>
     <script src="js/spriteUtilities.js"></script>
     <script src="js/style.js"></script>
-
 
 
 </html>

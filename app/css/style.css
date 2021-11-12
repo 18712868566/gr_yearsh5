@@ -74,7 +74,8 @@ a { text-decoration: none; color: inherit; }
 border-radius: 0.18rem; background: url(../images/loading/progress.png) 0 center repeat;
 -webkit-animation: warning-animation 5s infinite linear;
 -moz-animation: warning-animation 5s infinite linear;
-animation: warning-animation 5s infinite linear; }
+animation: warning-animation 5s infinite linear;
+}
 
 @-webkit-keyframes warning-animation {
     0% { background-position: 0 0; }
@@ -94,6 +95,7 @@ animation: warning-animation 5s infinite linear; }
     position: relative;
     z-index: 10;
  }
+
 
 /*logo*/
 .loading .logo { width: 5.18rem; height: 2.12rem; background: url(../images/loading/logo.png) no-repeat 0 0 / 100% 100%; position: absolute; top: 1.7rem; left: 50%; transform: translate(-50%, 0); }
@@ -143,7 +145,7 @@ animation: warning-animation 5s infinite linear; }
 }
 
 
-.page1_footer_btns{
+.page1_footer_btns,.page2_footer_btns{
     text-align: center;
     position: absolute;
     bottom: 0;
@@ -209,7 +211,7 @@ animation: warning-animation 5s infinite linear; }
         transform: rotate(0);
     }
     to {
-        transform: rotate(360deg);
+        transform:  rotate(360deg);
     }
 }
 
@@ -243,6 +245,7 @@ animation: warning-animation 5s infinite linear; }
     background: url(../images/page2/bg.jpg) no-repeat 0 0 / 100% 15.0rem;
     position: relative;
     overflow: hidden;
+    transition: background 600ms;
 }
 
 .page2 .txtYun{
@@ -250,38 +253,60 @@ animation: warning-animation 5s infinite linear; }
     height: 9.64rem;
     background: url(../images/page2/yun.png) no-repeat 0 0 / 100% 100%;
     position: absolute;
-    top: 0.78rem;
+    top: 0.28rem;
     left: 50%;
     margin-left: -3.4rem;
+    z-index: 3;
+    animation-duration: 8s;
 }
 
-.ball_cun,.ball_xia,.ball_qiu{
+
+
+
+.ball_cun,.ball_qiu{
     /*display: none;*/
     width:19.76rem;
     height: 19.76rem;
     position: absolute;
     left: 50%;
     margin-left:-9.88rem;
-    top: 82%;
-    display: none;
+    /*top: 82%;*/
+    bottom: -17.0rem;
+    opacity: 0;
+}
+
+.rotate_ball{
     animation: flash_line 50s infinite linear;
     -webkit-animation: flash_line 50s infinite linear;
 }
-
-
 .ball_cun{
     background: url(../images/ball_cun.png) no-repeat 0 0 / 19.76rem 19.76rem;
-    display: block;
-}
-.ball_xia{
-    background: url(../images/ball_xia.png) no-repeat 0 0 / 19.76rem 19.76rem;
 }
 .ball_qiu{
     background: url(../images/ball_qiu.png) no-repeat 0 0 / 19.76rem 19.76rem;
 }
 
+.ball_dong{
+    width: 7.5rem;
+    height: 3.04rem;
+    position: absolute;
+    background: url(../images/ball_dong.png) no-repeat 0 0 / 7.5rem 3.04rem;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+
+}
+
 /*跑动露西亚*/
-#loading_hero { width: 2.8rem; height: 2.8rem; position: absolute; top: 85%; left: 50%; transform: translate(-50%, -50%);z-index: 2; }
+#loading_hero {
+    width: 2.8rem;
+    height: 2.8rem;
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+    transform: translate(-50%, 0);
+    z-index: 3;
+}
 
 
 .txtYun .txts{
@@ -313,6 +338,93 @@ animation: warning-animation 5s infinite linear; }
 }
 
 
+.txtYun .txts p.txt031{
+    top: 38%;
+}
+
+
+/*结束界面*/
+.page2_end{
+    background: url(../images/page2end/page2end.jpg) no-repeat 0 0 / 100% 15.0rem;
+    transition: background 600ms;
+    position: relative;
+}
+
+.page2_end:after{
+    content: '';
+    display: block;
+    /*background: url(../images/page2end/star.png) no-repeat / 100% 13.34rem;*/
+    background: url(../images/page2end/star.png) repeat-y 0 0 / 100% 13.34rem;
+    position: absolute;
+    width: 100%;
+    height: 300%;
+    top: 0;
+    left: 0;
+    animation: afterAniBg 50s infinite linear;
+    -webkit-animation: afterAniBg 50s infinite linear;
+}
+
+
+@keyframes afterAniBg
+{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform:  translateY(-50%);
+    }
+}
+
+@-webkit-keyframes afterAniBg
+{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform:  translateY(-50%);
+    }
+}
+
+
+.page2_footer_btns .btn{
+    background:url(../images/page2end/btns.png) no-repeat  0 0 / 7.4rem 1.44rem;
+    position: absolute;
+    text-indent: -999em;
+}
+.page2_footer_btns .btn_top{
+    width:1.92rem;
+    height:1.34rem;
+    background-position: 0 0;
+    bottom: 0;
+    left: 0;
+}
+.page2_footer_btns .btn_goLott{
+    width:3.56rem;
+    height:1.44rem;
+    background-position: -3.84rem 0;
+    bottom: 0;
+    left: 50%;
+    margin-left:-1.78rem;
+}
+.page2_footer_btns .btn_share{
+    width:1.92rem;
+    height:1.34rem;
+    background-position: -1.92rem 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
 /*即: 设备屏幕可见宽度为375px， 可见高度为812px及设备像素比为3*/
 @media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) { }
 

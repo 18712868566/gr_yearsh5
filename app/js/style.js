@@ -2,7 +2,7 @@
  * @Author: A
  * @Date:   2021-06-30 14:08:32
  * @Last Modified by:   A
- * @Last Modified time: 2021-11-11 19:01:22
+ * @Last Modified time: 2021-11-12 19:22:01
  */
 $(function() {
 
@@ -18,6 +18,12 @@ $(function() {
         // dialog.alertPopLoginError();
     });
 
+    var scaleHeight = $(window).height()
+    if (scaleHeight<736) {
+        $('.txtYun').css({
+            transform: 'scale(1)'
+        });
+    }
     // 活动规则
     $('.btn_gz').on('click', function(event) {
         event.preventDefault();
@@ -30,21 +36,122 @@ $(function() {
         dialog.alertPopHDGZ_yh();
     });
 
+    // 返回主界面 - 重置页面状态
+    $(document).on('click', '.page2_footer_btns .btn_top', function(event) {
+        event.preventDefault();
+        layer.msg('返回主界面 - 重置页面状态');
+    });
+
+    //生成分享图
+    $(document).on('click', '.page2_footer_btns .btn_share', function(event) {
+        event.preventDefault();
+        layer.msg('生成分享截图 html2Canvas');
+    });
+
+    // 请求接口 游戏内发奖励
+    $(document).on('click', '.page2_footer_btns .btn_goLott', function(event) {
+        event.preventDefault();
+        layer.msg('请求接口 游戏内发奖励');
+        if (true) {
+            // 领奖成功后 弹出打开游侠弹框
+            dialog.alertPopLottend();
+
+            // 结束页面领奖按钮变分享按钮
+        }
+    });
+
+
     // 整体添加点击事件
     $('.page2').on('click', function() {
         // 根据点击次数切换内容 , 初始为0 , 每次点击+1
         console.log(heros.touchNum)
         showText_animate(heros.touchNum);
-        heros.touchNum = heros.touchNum + 1;
+
+        if (heros.touchNum == 30) {
+            heros.touchNum = 30;
+        } else {
+            heros.touchNum = heros.touchNum + 1;
+        }
     });
 });
+
+// 场景动画
+var snow = new $Snow();
+
+// 落花
+function flower() {
+    snow.stop();
+    snow = new $Snow({
+        opacity: 1,
+        speed: 10,
+        randombase: 1000,
+        num: 8,
+        offset: false,
+        isOffsetOnTouch: false,
+        img: true,
+        imgurl: '../images/icon_hua.png',
+        maxImgSize: 16,
+        isPause: false,
+        css: {
+            animation: 'rotate 3s linear infinite'
+        },
+        zIndex:2
+    });
+}
+
+
+// 落叶
+function luoye() {
+    snow.stop();
+    snow = new $Snow({
+        opacity: 1,
+        speed: 10,
+        randombase: 1000,
+        num: 8,
+        offset: false,
+        isOffsetOnTouch: false,
+        img: true,
+        imgurl: '../images/icon_ye.png',
+        maxImgSize: 16,
+        isPause: false,
+        css: {
+            animation: 'rotate 3s linear infinite'
+        },
+        zIndex:2
+    });
+}
+// 下雪
+function snowDown() {
+    snow.stop();
+    snow = new $Snow({
+        opacity: 1,
+        speed: 10,
+        randombase: 1000,
+        num: 8,
+        offset: false,
+        isOffsetOnTouch: false,
+        img: true,
+        imgurl: '../images/icon_snow.png',
+        maxImgSize: 16,
+        isPause: false,
+        css: {
+            animation: 'rotate 3s linear infinite'
+        },
+        zIndex:2
+    });
+}
+// 关闭天气场景
+function closeSky() {
+    snow.stop();
+}
+
 
 
 // 根据点击次数 展示内容和 切换任务动画
 function showText_animate(touchNum) {
     // body...
-    $(`.txt0${touchNum}`).addClass('animate__animated  animate__fadeOut');
-    $(`.txt0${touchNum+1}`).removeClass('hide').addClass('animate__animated  animate__fadeIn');
+    $(`.txt0${touchNum}`).addClass('animate__animated  animate__fadeOut').siblings('p').addClass('animate__animated  animate__fadeOut');
+    $(`.txt0${touchNum+1}`).removeClass('hide animate__fadeOut').addClass('animate__animated  animate__fadeIn');
 
 
     /**********************切换动画小人**************************/
@@ -72,6 +179,23 @@ function showText_animate(touchNum) {
     if (heros.touchNum == 15) {
         heros.pixi_sw_zn.visible = false;
         heros.pixi_qs_fb.visible = true;
+
+        // 变换场景
+        gsap.fromTo(".ball_cun", {
+            opacity: 1,
+        }, {
+            opacity: 0,
+            duration: 1
+        });
+
+        gsap.fromTo(".ball_qiu", {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1
+        });
+
+        luoye()
     }
     // 切换到卡列尼娜 爆裂
     if (heros.touchNum == 18) {
@@ -87,13 +211,31 @@ function showText_animate(touchNum) {
 
     // 摸头最多
     if (heros.touchNum == 24) {
+
+        // 变换场景
+        gsap.fromTo(".ball_qiu", {
+            opacity: 1,
+        }, {
+            opacity: 0,
+            duration: 1
+        });
+
+        gsap.fromTo(".ball_dong", {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1
+        });
+
+        snowDown();
+
         // 重置精灵状态
         setSprAttr(heros.heroArrs);
 
         // 根据接口返回的id, 对比本地映射插入页面
 
         // 露西亚 红莲or黎明or鸦羽
-        if(heros.touchMoreId == 1 || heros.touchMoreId == 2 || heros.touchMoreId == 3){
+        if (heros.touchMoreId == 1 || heros.touchMoreId == 2 || heros.touchMoreId == 3) {
             $('.txt025').html(touchHeroTopMore.lxy.speak1)
             $('.txt026').html(touchHeroTopMore.lxy.speak2)
             // 根据id 展示对应精灵
@@ -101,7 +243,7 @@ function showText_animate(touchNum) {
         }
 
         // 丽芙 蝕暗 or 流光 or 仰光
-        if(heros.touchMoreId == 4 || heros.touchMoreId == 5 || heros.touchMoreId == 6){
+        if (heros.touchMoreId == 4 || heros.touchMoreId == 5 || heros.touchMoreId == 6) {
             $('.txt025').html(touchHeroTopMore.lufu.speak1)
             $('.txt026').html(touchHeroTopMore.lufu.speak1)
             // 根据id 展示对应精灵
@@ -110,8 +252,8 @@ function showText_animate(touchNum) {
 
         // 精灵展示区移动位置
         $('#loading_hero').stop().animate({
-            top:'60%'
-        },500)
+            bottom: '4rem'
+        }, 500)
         // 插入次数
         $('.txt025').find('i').text(heros.touchMoreNumber)
 
@@ -121,7 +263,7 @@ function showText_animate(touchNum) {
         // 重置精灵状态
         setSprAttr(heros.heroArrs);
         // 根据接口返回的id, 对比本地映射插入页面
-        if(heros.touchLessId == 1){
+        if (heros.touchLessId == 1) {
             $('.txt027').html(touchHeroTopLess.kamu.speak1)
             $('.txt028').html(touchHeroTopLess.kamu.speak2)
             // 展示对应精灵
@@ -133,12 +275,11 @@ function showText_animate(touchNum) {
     }
 
     // 出击最多
-
     if (heros.touchNum == 28) {
         // 重置精灵状态
         setSprAttr(heros.heroArrs);
         // 根据接口返回的id, 对比本地映射插入页面
-        if(heros.goPlayId == 1){
+        if (heros.goPlayId == 1) {
             $('.txt029').html(touchHeroGoPlay.alpha.speak1)
             $('.txt030').html(touchHeroGoPlay.alpha.speak2)
             // 展示对应精灵
@@ -148,6 +289,42 @@ function showText_animate(touchNum) {
         $('.txt029').find('i').text(heros.goPlayNumber)
     }
 
+    // 数据结束画面
+    if (heros.touchNum == 30) {
+        // 重置精灵状态
+        setSprAttr(heros.heroArrs);
+        // 关闭天气
+        closeSky();
+        // 展示结束精灵
+        heros.pixi_lxy_hl_bye.visible = true;
+
+        // 变换天气
+        gsap.fromTo(".ball_dong", {
+            opacity: 1,
+        }, {
+            opacity: 0,
+            duration: 1
+        });
+
+
+        $('.rotate_ball').animate({
+            top: '110%'
+        }, 500);
+
+        $('.page2 .txtYun').stop().animate({
+            top: '1.28rem'
+        }, 500)
+
+        // 精灵展示区移动位置
+        $('#loading_hero').stop().animate({
+            bottom: '2.8rem'
+        }, 500)
+
+        $('.page2 .top_qizi').show().addClass('animate__animated  animate__fadeInDown');
+        $('.page2_footer_btns').show().addClass('animate__animated  animate__fadeInUp');
+        $('.page2').addClass('page2_end');
+
+    }
 }
 
 
@@ -192,15 +369,21 @@ function loadProgressHandler(loader, resource) {
     $(".progress_wrap .progress_cc .progress").css({
         width: precc_widht + '%'
     });
-
 }
 
-
 function setup() {
-
     // 加载完毕
     $('.loading').hide();
-    // $('.txt01').removeClass('hide').addClass('animate__animated  animate__fadeIn');
+    // 初始化天气场景
+    // 春天
+    flower()
+    gsap.fromTo(".ball_cun", {
+        opacity: 0,
+    }, {
+        opacity: 1,
+        duration: 1
+    });
+    $('.txt01').removeClass('hide').addClass('animate__animated  animate__fadeIn');
 
 
     //设置别名

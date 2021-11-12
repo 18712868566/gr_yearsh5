@@ -2,7 +2,7 @@
 * @Author: A
 * @Date:   2021-11-09 14:04:00
 * @Last Modified by:   A
-* @Last Modified time: 2021-11-09 16:10:25
+* @Last Modified time: 2021-11-12 14:12:21
 */
 
 /*=========================== dialog通用样式开始 ====================================*/
@@ -184,3 +184,39 @@ input::input-placeholder {
 }
 
 
+
+
+/*领奖成功*/
+.pop_lott_end{
+    width:7.02rem;
+    height: 9.58rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+}
+.pop_lott_end .pop_hdgz_cc p{
+    font-size: 0.28rem;
+    color: #563b14;
+}
+.pop_lott_end .pop_hdgz_cc{
+    height: 9.0rem;
+}
+.pop_lott_end .btn_openGame{
+    width: 3.5rem;
+    height: 0.7rem;
+    background: url(../images/pop/pop_btn_lott.png) no-repeat 0 0 / 100% 100%;
+    margin: 0.4rem auto 0;
+}
+.pop_lott_end .btn_share{
+    width: 3.5rem;
+    height: 0.7rem;
+    background: url(../images/pop/pop_twitter_share.png) no-repeat 0 0 / 100% 100%;
+    margin: 0.2rem auto;
+}
+.pop_lott_end .btn_top{
+    width: 2.12rem;
+    height: 0.7rem;
+    background: url(../images/pop/pop_top.png) no-repeat 0 0 / 100% 100%;
+    margin: 0 auto;
+}

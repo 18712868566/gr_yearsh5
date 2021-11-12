@@ -1,12 +1,12 @@
 /* @Author: A
  * @Date:   2021-11-09 11:15:13
  * @Last Modified by:   A
- * @Last Modified time: 2021-11-11 18:18:58
+ * @Last Modified time: 2021-11-12 19:01:38
  */
 
  const heros = {
     app:null,  // pixi
-    touchNum: 23, // 点击次数
+    touchNum: 1, // 点击次数
     staticURL:'../', // 本地调试路径
     touchMoreId:4, // 摸头最多id
     touchMoreNumber:88, // 摸头最多id
@@ -28,6 +28,7 @@ let imgURL_pao = [
     ""+heros.staticURL+"images/hero/丽芙-蚀暗/丽芙-蚀暗-走路/丽芙-蚀暗-走路_spr.png",
     ""+heros.staticURL+"images/hero/里-异火/里-异火-走路/里-异火-走路_spr.png",
     ""+heros.staticURL+"images/hero/渡边-夜刃/渡边-夜刃-走路/渡边-夜刃-走路_spr.png",
+
     ""+heros.staticURL+"images/hero/神威-重能/神威-重能-走路/神威-重能-走路_spr.png",
     ""+heros.staticURL+"images/hero/七实-风暴/七实-风暴-走路/七实-风暴-走路_spr.png",
     ""+heros.staticURL+"images/hero/卡列-爆裂/卡列-爆裂-走路/卡列-爆裂-走路_spr.png",
