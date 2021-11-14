@@ -22,70 +22,79 @@
     <link rel="stylesheet" href="css/pop.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/rem.js"></script>
-    <body>
-        <div id="wrap" class="wrap">
-            <!-- load页 -->
-            <div class="loading ">
-                <!-- 彩旗 -->
-                <div class="top_qizi"></div>
-                <!-- logo -->
-                <div class="logo"></div>
 
-                <!-- 小人 -->
-                <div class="load_icon goload_icon"></div>
-
-                <!-- 加载进度条 -->
-                <div class="progress_wrap">
-                    <div class="progress_cc">
-                        <div class="progress">
-                            <span></span>
+<body>
+    <div id="wrap" class="wrap">
+        <!-- load页 -->
+        <div class="loading">
+            <!-- 彩旗 -->
+            <div class="top_qizi"></div>
+            <!-- 居中块 -->
+            <div class="pos-center">
+                <div class="glo-scale">
+                    <!-- logo -->
+                    <div class="logo"></div>
+                    <!-- 小人 -->
+                    <div class="load_icon goload_icon"></div>
+                    <!-- 加载进度条 -->
+                    <div class="progress_wrap">
+                        <div class="progress_cc">
+                            <div class="progress">
+                                <span></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- 花海 -->
-                <div class="flowers">
-                    <div class="flsh2"></div>
-                    <div class="flsh3"></div>
-                    <div class="flsh4"></div>
-                    <div class="flsh5"></div>
-                </div>
-                <!-- 树 -->
-                <div class="foo_shu "></div>
             </div>
-
-
-            <!-- page1 -->
-            <div class="page1 ">
-                <!-- 彩旗 -->
-                <div class="top_qizi"></div>
-                <!-- logo -->
-                <div class="logo"></div>
-                <!-- 人物组 -->
-                <div class="character_set">
-                    <!-- 转动光圈 -->
-                    <div class="flash_line page1_imgArr"></div>
-                    <div class="chsets page1_imgArr"></div>
-                </div>
-                <!-- 花海 -->
-                <div class="flowers">
-                    <div class="flsh2"></div>
-                    <div class="flsh3"></div>
-                    <div class="flsh4"></div>
-                    <div class="flsh5"></div>
-                </div>
-
-                <!-- 按钮 -->
-                <div class="page1_footer_btns">
-                    <p class="btn btn_gz page1_imgArr"> 规则 </p>
-                    <p class="btn btn_play page1_imgArr"> 开始 </p>
-                    <p class="btn btn_lott page1_imgArr"> 奖励 </p>
+            <!-- 花海 -->
+            <div class="flowers">
+                <div class="flsh2"></div>
+                <div class="flsh3"></div>
+                <div class="flsh4"></div>
+                <div class="flsh5"></div>
+            </div>
+            <!-- 树 -->
+            <div class="foo_shu "></div>
+        </div>
+        <!-- page1 -->
+        <div class="page1 hide">
+            <!-- 彩旗 -->
+            <div class="top_qizi"></div>
+            <!-- 转动光圈 -->
+            <div class="flash_line page1_imgArr"></div>
+            <!-- 居中块 -->
+            <div class="pos-center zindextop">
+                <div class="glo-scale ">
+                    <!-- logo -->
+                    <div class="logo"></div>
+                    <!-- 人物组 -->
+                    <div class="character_set">
+                        <div class="chsets page1_imgArr"></div>
+                    </div>
                 </div>
             </div>
-
-            <!-- page2 -->
-            <div class="page2">
+            <!-- 花海 -->
+            <div class="flowers">
+                <div class="flsh2"></div>
+                <div class="flsh3"></div>
+                <div class="flsh4"></div>
+                <div class="flsh5"></div>
+            </div>
+            <!-- 按钮 -->
+            <div class="page1_footer_btns">
+                <p class="btn btn_gz page1_imgArr"> 规则 </p>
+                <p class="btn btn_play page1_imgArr"> 开始 </p>
+                <p class="btn btn_lott page1_imgArr"> 奖励 </p>
+            </div>
+        </div>
+        <!-- page2 -->
+        <div class="page2">
+            <!-- 精灵位置 -->
+            <div id="loading_hero"></div>
+            <!-- 居中块 -->
+            <div class="pos-center zindextop">
                 <!-- 云 -->
-                <div class="txtYun ">
+                <div class="txtYun glo-scale">
                     <!-- 所有话语 -->
                     <div class="txts">
                         <!-- hero1 红莲-->
@@ -100,7 +109,6 @@
                             私たちこんなに長い間一緒にいたんですね。指揮官と過ごした時間は私の宝物です。これからも、宝物が増えると嬉しいです。
                         </p>
                         <!-- hero1 end -->
-
                         <!-- hero2 暗蚀-->
                         <p class="txt04 font-rounded hide">
                             あの…続きは私がお話します。うまく説明できるかわかりませんが、がんばります。
@@ -113,8 +121,6 @@
                             私、これからはこの時間帯に執務室にお伺いするようにしますね。指揮官にできるだけたくさん会えると、嬉しいですから。
                         </p>
                         <!-- hero2 end -->
-
-
                         <!-- hero3 里 异火-->
                         <p class="txt07 font-rounded hide">
                             続けて僕がデータベースを解析します。しっかり聞いてくださいね。
@@ -127,7 +133,6 @@
                             <span>え、僕ですか？……嫌とは言っていませんよ、嫌とは。</span>
                         </p>
                         <!-- hero3 end -->
-
                         <!-- hero4 渡边 夜刃-->
                         <p class="txt010 font-rounded hide">
                             指揮官、聞こえるか？データ解析の続きだが、私からも説明しよう。
@@ -140,8 +145,6 @@
                             <span>毎日の任務、ご苦労さまだな。空中庭園とオブリビオンの垣根を越えて、共に戦えることを光栄に思う。</span>
                         </p>
                         <!-- hero4 end -->
-
-
                         <!-- hero5 神威 重能-->
                         <p class="txt013 font-rounded hide">
                             おっーーす、指揮官！この先は俺が説明するぜ。って言ってもリーが解析したデータを読み上げるだけだけどな！
@@ -153,7 +156,6 @@
                             ってことは、こんなにいっぱいナットを使って俺の装備を整えてくれたんだよな？ありがとな！俺の親友！！
                         </p>
                         <!-- hero5 end -->
-
                         <!-- hero6 七实 风暴-->
                         <p class="txt016 font-rounded hide">
                             はいはーい、おまたせ～、次はナナミの番だよ。
@@ -166,7 +168,6 @@
                             指揮官がいっぱい家具を作ってくれたから、ナナミたち宿舎で楽しく過ごしてるよ。ありがとね！し、き、かん！！
                         </p>
                         <!-- hero6 end -->
-
                         <!-- hero7 卡列尼娜 爆裂-->
                         <p class="txt019 font-rounded hide">
                             やっとオレの出番か。ルシアより後なのが気にくわねーが…まあ、お前がどうしてもって言うならしゃーねえな、説明してやるよ。
@@ -179,7 +180,6 @@
                             まあオレに任せればざっとこんなもんよ。もちろん他の皆のおかげでもあるけどな。ル、ルシアも含めて…
                         </p>
                         <!-- hero7 end -->
-
                         <!-- hero8 比安卡 零度-->
                         <p class="txt022 font-rounded hide">
                             指揮官殿、データ解析が長くなってしまい申し訳ございません。すぐ終わりますので、あと少しだけお付き合いください。
@@ -192,76 +192,67 @@
                             24地球奪回のためにご尽力いただき感謝します。私は…いえ、私たちはこれからも全力で指揮官殿を支えて参ります。
                         </p>
                         <!-- hero8 end -->
-
                         <!-- 摸头最多 -->
                         <p class="txt025 font-rounded hide">
                         </p>
                         <p class="txt026 font-rounded hide">
                         </p>
                         <!-- 摸头最多end -->
-
                         <!-- 摸头最少 -->
                         <p class="txt027 font-rounded hide">
                         </p>
                         <p class="txt028 font-rounded hide">
                         </p>
                         <!-- 摸头最少end -->
-
                         <!-- 出击最多 -->
                         <p class="txt029 font-rounded hide">
                         </p>
                         <p class="txt030 font-rounded hide">
                         </p>
                         <!-- 出击最多end -->
-
-
                         <!-- 结尾 -->
                         <p class="txt031 font-rounded hide">
                             次のデータは…チッ…これより深い階層のデータベースにはロックがかかっているみたい。アシモフの仕業かしら…まあいいわ。指揮官、これからも期待を裏切らないでくれるわね？ずっとあなたのことを見てるわ
                         </p>
                     </div>
                 </div>
-                <!-- 精灵位置 -->
-                <div id="loading_hero"></div>
                 <!-- ball_cun -->
                 <div class="ball_cun rotate_ball "></div>
                 <!-- ball_qiu -->
                 <div class="ball_qiu rotate_ball "></div>
-               <!-- ball_dong -->
+                <!-- ball_dong -->
                 <div class="ball_dong "></div>
-
-                <!-- 彩旗 -->
-                <div class="top_qizi hide"></div>
-                <!-- 按钮 -->
-                <div class="page2_footer_btns hide">
-                    <!-- 回到主界面 -->
-                    <p class="btn btn_top "> top </p>
-                    <!-- 奖励领取后变成分享 -->
-                    <p class="btn btn_goLott "> 领奖 </p>
-                    <!-- 生成分享海报 -->
-                    <p class="btn btn_share "> 分享 </p>
-                </div>
             </div>
 
-
+            <!-- 彩旗 -->
+            <div class="top_qizi hide"></div>
+            <!-- 按钮 -->
+            <div class="page2_footer_btns hide">
+                <!-- 回到主界面 -->
+                <p class="btn btn_top "> top </p>
+                <!-- 奖励领取后变成分享 -->
+                <p class="btn btn_goLott "> 领奖 </p>
+                <!-- 生成分享海报 -->
+                <p class="btn btn_share "> 分享 </p>
+            </div>
         </div>
-    </body>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/layer/dist/layer.js"></script>
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/gsap.min.js"></script>
-    <!-- ---------处理文字---------- -->
-    <!-- <script src="js/textillate/jquery.fittext.js"></script> -->
-    <!-- <script src="js/textillate/jquery.lettering.js"></script> -->
-    <!-- <script src="js/textillate/jquery.textillate.js"></script> -->
-    <!-- ---------处理文字end---------- -->
-    <script src="js/preloadText.js"></script>
-    <script src="js/snow.js"></script>
-
-    <script src="js/common.js"></script>
-    <script src="js/pixi.js"></script>
-    <script src="js/spriteUtilities.js"></script>
-    <script src="js/style.js"></script>
-
-
+    </div>
+</body>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/axios/dist/axios.js"></script>
+<script src="bower_components/layer/dist/layer.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/gsap.min.js"></script>
+<!-- ---------处理文字---------- -->
+<!-- <script src="js/textillate/jquery.fittext.js"></script> -->
+<!-- <script src="js/textillate/jquery.lettering.js"></script> -->
+<!-- <script src="js/textillate/jquery.textillate.js"></script> -->
+<!-- ---------处理文字end---------- -->
+<script src="js/preloadText.js"></script>
+<script src="js/snow.js"></script>
+<script src="js/common.js"></script>
+<script src="js/pixi.js"></script>
+<script src="js/spriteUtilities.js"></script>
+<script src="js/style.js"></script>
+<script src="js/webmainAxios.js"></script>
 </html>

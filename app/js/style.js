@@ -9,21 +9,9 @@ $(function() {
     //关闭
     $(document).on("click", "#alertInfo .close,.close,.confirm,.pop-comm .pop_close,.pop_close_maskLayer,.pop_sjz", dialog.closeDiv);
 
-    $('.btn_play').on('click', function(event) {
-        event.preventDefault();
-        //登录
-        dialog.alertPopLogin();
+    // 初始化缩放比例
+    gloScale();
 
-        // 登录错误 从新输入
-        // dialog.alertPopLoginError();
-    });
-
-    var scaleHeight = $(window).height()
-    if (scaleHeight<736) {
-        $('.txtYun').css({
-            transform: 'scale(1)'
-        });
-    }
     // 活动规则
     $('.btn_gz').on('click', function(event) {
         event.preventDefault();
@@ -47,42 +35,29 @@ $(function() {
         event.preventDefault();
         layer.msg('生成分享截图 html2Canvas');
     });
-
-    // 请求接口 游戏内发奖励
-    $(document).on('click', '.page2_footer_btns .btn_goLott', function(event) {
-        event.preventDefault();
-        layer.msg('请求接口 游戏内发奖励');
-        if (true) {
-            // 领奖成功后 弹出打开游侠弹框
-            dialog.alertPopLottend();
-
-            // 结束页面领奖按钮变分享按钮
-        }
-    });
-
-
-    // 整体添加点击事件
-    $('.page2').on('click', function() {
-        // 根据点击次数切换内容 , 初始为0 , 每次点击+1
-        console.log(heros.touchNum)
-        showText_animate(heros.touchNum);
-
-        if (heros.touchNum == 30) {
-            heros.touchNum = 30;
-        } else {
-            heros.touchNum = heros.touchNum + 1;
-        }
-    });
 });
 
-// 场景动画
-var snow = new $Snow();
+// 整体添加点击事件-切换场景
+function onStageClick() {
+    console.log(heros.touchNum)
+    showText_animate(heros.touchNum);
 
+    if (heros.touchNum == 31) {
+        heros.touchNum = 31;
+    } else {
+        heros.touchNum = heros.touchNum + 1;
+    }
+}
+
+// 场景动画 // 初始化天气场景
+var snow = new $Snow({
+    zIndex: 2
+});
 // 落花
 function flower() {
     snow.stop();
     snow = new $Snow({
-        opacity: 1,
+        opacity: 0.8,
         speed: 10,
         randombase: 1000,
         num: 8,
@@ -95,11 +70,9 @@ function flower() {
         css: {
             animation: 'rotate 3s linear infinite'
         },
-        zIndex:2
+        zIndex: 2
     });
-}
-
-
+};
 // 落叶
 function luoye() {
     snow.stop();
@@ -117,9 +90,9 @@ function luoye() {
         css: {
             animation: 'rotate 3s linear infinite'
         },
-        zIndex:2
+        zIndex: 2
     });
-}
+};
 // 下雪
 function snowDown() {
     snow.stop();
@@ -137,18 +110,58 @@ function snowDown() {
         css: {
             animation: 'rotate 3s linear infinite'
         },
-        zIndex:2
+        zIndex: 2
     });
-}
+};
 // 关闭天气场景
 function closeSky() {
     snow.stop();
 }
 
+// 后退-消失
+function gameLoop(spr, delta) {
+    //Update the cat's velocity
+    if (spr.x >= 350) {
+        spr.vx = 0;
+        // console.log(spr.totalFrames)
+        // spr.gotoAndStop(0);
+        spr.visible = false;
+    } else {
+        spr.vx = 2;
+    }
+    // spr.vy = 1;
+    //Apply the velocity values to the cat's
+    //position to make it move
+    spr.x += spr.vx;
+    // console.log(spr.x)
+    // spr.y += spr.vy;
+}
+// 前进 - 打招呼
+function gameLoopLeft(spr, spr2, time, delta) {
+    if (spr.x >= $(window).width() / 2) {
+        spr.vx = 0;
+        // spr.vy = 0;
+        setTimeout(function() {
+            spr.visible = false;
+            spr2.visible = true;
+        }, time)
+    } else {
+        spr.vx = 3;
+        // spr.vy = -1;
+    }
+    spr.x += spr.vx;
+    // spr.y += spr.vy;
+}
 
+// 向上 - 固定位置
+function gameLoopTop(spr, delta) {
+    spr.vy = -1;
+    spr.y += spr.vy;
+}
 
 // 根据点击次数 展示内容和 切换任务动画
 function showText_animate(touchNum) {
+    if (touchNum == 31) return false;
     // body...
     $(`.txt0${touchNum}`).addClass('animate__animated  animate__fadeOut').siblings('p').addClass('animate__animated  animate__fadeOut');
     $(`.txt0${touchNum+1}`).removeClass('hide animate__fadeOut').addClass('animate__animated  animate__fadeIn');
@@ -157,28 +170,67 @@ function showText_animate(touchNum) {
     /**********************切换动画小人**************************/
     // 切换到丽芙暗蚀
     if (heros.touchNum == 3) {
-        heros.pixi_lxy_hl.visible = false;
-        heros.pixi_lf_as.visible = true;
+        // heros.pixi_lxy_hl.visible = false;
+        // heros.pixi_lf_as.visible = true;
+        heros.app.ticker.add(delta => gameLoop(heros.pixi_lxy_hl, delta));
+        heros.pixi_lf_as_mbye.visible = true;
+        heros.pixi_lf_as_mbye.stop();
+        heros.pixi_lf_as_mbye.x = 35;
+        heros.pixi_lf_as_mbye.gotoAndPlay(0);
+
+        heros.app.ticker.add(delta => gameLoopLeft(heros.pixi_lf_as_mbye, heros.pixi_lf_as, 2100, delta));
     }
     // 切换到里 异火
     if (heros.touchNum == 6) {
-        heros.pixi_lf_as.visible = false;
-        heros.pixi_li_yh.visible = true;
+        // heros.pixi_lf_as.visible = false;
+        // heros.pixi_li_yh.visible = true;
+
+        heros.app.ticker.add(delta => gameLoop(heros.pixi_lf_as, delta));
+        heros.pixi_li_yh_mbye.visible = true;
+        heros.pixi_li_yh_mbye.stop();
+        heros.pixi_li_yh_mbye.x = 35;
+        heros.pixi_li_yh_mbye.gotoAndPlay(0);
+
+        heros.app.ticker.add(delta => gameLoopLeft(heros.pixi_li_yh_mbye, heros.pixi_li_yh, 2100, delta));
     }
     // 切换到 渡边 夜刃
     if (heros.touchNum == 9) {
-        heros.pixi_li_yh.visible = false;
-        heros.pixi_db_yr.visible = true;
+        // heros.pixi_li_yh.visible = false;
+        // heros.pixi_db_yr.visible = true;
+
+        heros.app.ticker.add(delta => gameLoop(heros.pixi_li_yh, delta));
+        heros.pixi_db_yr_mbye.visible = true;
+        heros.pixi_db_yr_mbye.stop();
+        heros.pixi_db_yr_mbye.x = 35;
+        heros.pixi_db_yr_mbye.gotoAndPlay(0);
+
+        heros.app.ticker.add(delta => gameLoopLeft(heros.pixi_db_yr_mbye, heros.pixi_db_yr, 2000, delta));
     }
     // 切换到 神威 重能
     if (heros.touchNum == 12) {
-        heros.pixi_db_yr.visible = false;
-        heros.pixi_sw_zn.visible = true;
+        // heros.pixi_db_yr.visible = false;
+        // heros.pixi_sw_zn.visible = true;
+
+        heros.app.ticker.add(delta => gameLoop(heros.pixi_db_yr, delta));
+        heros.pixi_sw_zn_mbye.visible = true;
+        heros.pixi_sw_zn_mbye.stop();
+        heros.pixi_sw_zn_mbye.x = 35;
+        heros.pixi_sw_zn_mbye.gotoAndPlay(0);
+
+        heros.app.ticker.add(delta => gameLoopLeft(heros.pixi_sw_zn_mbye, heros.pixi_sw_zn, 2000, delta));
     }
     // 切换到七实 风暴
     if (heros.touchNum == 15) {
-        heros.pixi_sw_zn.visible = false;
-        heros.pixi_qs_fb.visible = true;
+        // heros.pixi_sw_zn.visible = false;
+        // heros.pixi_qs_fb.visible = true;
+
+        heros.app.ticker.add(delta => gameLoop(heros.pixi_sw_zn, delta));
+        heros.pixi_qs_fb_mbye.visible = true;
+        heros.pixi_qs_fb_mbye.stop();
+        heros.pixi_qs_fb_mbye.x = 35;
+        heros.pixi_qs_fb_mbye.gotoAndPlay(0);
+
+        heros.app.ticker.add(delta => gameLoopLeft(heros.pixi_qs_fb_mbye, heros.pixi_qs_fb, 1500, delta));
 
         // 变换场景
         gsap.fromTo(".ball_cun", {
@@ -194,18 +246,34 @@ function showText_animate(touchNum) {
             opacity: 1,
             duration: 1
         });
-
+        // 秋天
         luoye()
     }
     // 切换到卡列尼娜 爆裂
     if (heros.touchNum == 18) {
-        heros.pixi_qs_fb.visible = false;
-        heros.pixi_klnn_bl.visible = true;
+        // heros.pixi_qs_fb.visible = false;
+        // heros.pixi_klnn_bl.visible = true;
+
+        heros.app.ticker.add(delta => gameLoop(heros.pixi_qs_fb, delta));
+        heros.pixi_klnn_bl_mbye.visible = true;
+        heros.pixi_klnn_bl_mbye.stop();
+        heros.pixi_klnn_bl_mbye.x = 35;
+        heros.pixi_klnn_bl_mbye.gotoAndPlay(0);
+
+        heros.app.ticker.add(delta => gameLoopLeft(heros.pixi_klnn_bl_mbye, heros.pixi_klnn_bl, 2000, delta));
     }
     // 切换到比安卡零度
     if (heros.touchNum == 21) {
-        heros.pixi_klnn_bl.visible = false;
-        heros.pixi_bak_ld.visible = true;
+        // heros.pixi_klnn_bl.visible = false;
+        // heros.pixi_bak_ld.visible = true;
+
+        heros.app.ticker.add(delta => gameLoop(heros.pixi_klnn_bl, delta));
+        heros.pixi_bak_ld_mbye.visible = true;
+        heros.pixi_bak_ld_mbye.stop();
+        heros.pixi_bak_ld_mbye.x = 35;
+        heros.pixi_bak_ld_mbye.gotoAndPlay(0);
+
+        heros.app.ticker.add(delta => gameLoopLeft(heros.pixi_bak_ld_mbye, heros.pixi_bak_ld, 2000, delta));
     }
     /**********************切换动画小人end**************************/
 
@@ -226,11 +294,15 @@ function showText_animate(touchNum) {
             opacity: 1,
             duration: 1
         });
-
+        // 关闭天气
         snowDown();
 
-        // 重置精灵状态
-        setSprAttr(heros.heroArrs);
+        heros.pixi_bak_ld.stop();
+        heros.app.stage.removeChild(heros.pixi_bak_ld)
+
+        // 隐藏全部精灵
+        hideAllSpr(heros.heroArrs);
+
 
         // 根据接口返回的id, 对比本地映射插入页面
 
@@ -251,17 +323,14 @@ function showText_animate(touchNum) {
         }
 
         // 精灵展示区移动位置
-        $('#loading_hero').stop().animate({
-            bottom: '4rem'
-        }, 500)
+        setSprPos(heros.heroArrs, '3');
         // 插入次数
         $('.txt025').find('i').text(heros.touchMoreNumber)
-
     }
     // 摸头最少
     if (heros.touchNum == 26) {
-        // 重置精灵状态
-        setSprAttr(heros.heroArrs);
+        // 隐藏全部精灵
+        hideAllSpr(heros.heroArrs);
         // 根据接口返回的id, 对比本地映射插入页面
         if (heros.touchLessId == 1) {
             $('.txt027').html(touchHeroTopLess.kamu.speak1)
@@ -269,6 +338,8 @@ function showText_animate(touchNum) {
             // 展示对应精灵
             heros.pixi_km_kq_sad.visible = true;
         }
+        // 精灵展示区移动位置
+        setSprPos(heros.heroArrs, '3');
         // 插入次数
         $('.txt027').find('i').text(heros.touchLessNumber)
 
@@ -276,8 +347,8 @@ function showText_animate(touchNum) {
 
     // 出击最多
     if (heros.touchNum == 28) {
-        // 重置精灵状态
-        setSprAttr(heros.heroArrs);
+        // 隐藏全部精灵
+        hideAllSpr(heros.heroArrs);
         // 根据接口返回的id, 对比本地映射插入页面
         if (heros.goPlayId == 1) {
             $('.txt029').html(touchHeroGoPlay.alpha.speak1)
@@ -285,40 +356,35 @@ function showText_animate(touchNum) {
             // 展示对应精灵
             heros.pixi_alpha_bye.visible = true;
         }
+        // 精灵展示区移动位置
+        setSprPos(heros.heroArrs, '3');
         // 插入次数
         $('.txt029').find('i').text(heros.goPlayNumber)
     }
 
     // 数据结束画面
     if (heros.touchNum == 30) {
-        // 重置精灵状态
-        setSprAttr(heros.heroArrs);
+        // 隐藏全部精灵
+        hideAllSpr(heros.heroArrs);
         // 关闭天气
-        closeSky();
+        snow.stop();
+        // closeSky();
         // 展示结束精灵
         heros.pixi_lxy_hl_bye.visible = true;
 
         // 变换天气
-        gsap.fromTo(".ball_dong", {
-            opacity: 1,
-        }, {
+        $('.ball_dong,.rotate_ball').hide();
+
+        gsap.fromTo(".page2 .txtYun", {
             opacity: 0,
-            duration: 1
+        }, {
+            top: '0rem',
+            opacity: 1,
+            duration: 1.5
         });
 
-
-        $('.rotate_ball').animate({
-            top: '110%'
-        }, 500);
-
-        $('.page2 .txtYun').stop().animate({
-            top: '1.28rem'
-        }, 500)
-
         // 精灵展示区移动位置
-        $('#loading_hero').stop().animate({
-            bottom: '2.8rem'
-        }, 500)
+        setSprPos(heros.heroArrs, '3');
 
         $('.page2 .top_qizi').show().addClass('animate__animated  animate__fadeInDown');
         $('.page2_footer_btns').show().addClass('animate__animated  animate__fadeInUp');
@@ -329,33 +395,12 @@ function showText_animate(touchNum) {
 
 
 
-function argumentsTabs(tabList, tabbox, index = 0) {
-    // $(tabList + ":first-child").removeClass('curr').addClass('curr')
-    console.log('index==' + index)
-    var $div_li = $(tabList);
-    $div_li.click(function() {
-        $(this).addClass('curr').siblings().removeClass('curr');
-        // var index = $div_li.index(this);
-        var index = $div_li.index(this);
-        // console.log('a')
-        console.log('index-===' + index)
-        $(tabbox).eq(index).addClass("curr").show().siblings().removeClass("curr").hide();
-        // $(tabbox).eq(index).addClass("curr").stop().animate({opacity:1},"360").siblings().removeClass("curr").stop().animate({opacity:0},"360");
-        //var h =$(tabbox).eq(index).offset().top;
-        //$( "html,body").animate({ "scrollTop" : h },300);  //滚动到指定位置
-        // 跟随横条
-        // var $height = $('.flList .flListText').outerHeight(true);
-        // $(this).siblings('.curr_triangle').stop().animate({'top': (index*$height)},"88");
-    }).eq(index).click();
-};
-
-
-
 //加载图像，加载完成后执行setup函数
 PIXI.loader
     .add(imgURL_pao)
     .add(imgURL_bye)
     .add(imgURL_sad)
+    .add(imgURL_move)
     .on("progress", loadProgressHandler)
     .load(setup);
 
@@ -371,12 +416,30 @@ function loadProgressHandler(loader, resource) {
     });
 }
 
+// 页面加载完毕执行 - 初始化舞台
 function setup() {
     // 加载完毕
     $('.loading').hide();
-    // 初始化天气场景
-    // 春天
-    flower()
+
+    // 初始化主界面
+    $('.page1').fadeIn('slow');
+    $('.page1 .top_qizi').addClass('animate__animated  animate__fadeInDown');
+    $('.page1 .chsets').addClass('animate__animated  animate__zoomIn');
+    $('.page1 .page1_footer_btns').addClass('animate__animated  animate__fadeInUp');
+
+    gsap.fromTo(".page1 .logo", {
+        opacity: 0,
+        width: '5.18rem',
+        height: '2.12rem',
+        top: '0.7rem'
+    }, {
+        opacity: 1,
+        width: '6.88rem',
+        height: '2.92rem',
+        top: '7.2rem',
+        duration: 1
+    });
+
     gsap.fromTo(".ball_cun", {
         opacity: 0,
     }, {
@@ -384,7 +447,7 @@ function setup() {
         duration: 1
     });
     $('.txt01').removeClass('hide').addClass('animate__animated  animate__fadeIn');
-
+    // 初始化主界面end
 
     //设置别名
     let TextureCache = PIXI.utils.TextureCache; // 存储缓存纹理
@@ -405,6 +468,13 @@ function setup() {
     // 创建一个pixi应用
     heros.app = new PIXI.Application(optionRunHomeLxy);
 
+    // 可交互属性设置
+    heros.app.stage.interactive = true;
+    // stage空白处添加上点击
+    heros.app.renderer.plugins.interaction.on('pointerdown', onStageClick)
+
+    heros.app.renderer.autoResize = true; // 窗口变化改变舞台大小
+    heros.app.renderer.resize(window.innerWidth, window.innerHeight);
     // 获取渲染器
     let renderer = heros.app.renderer;
 
@@ -426,7 +496,7 @@ function setup() {
     heros.pixi_lxy_hl.visible = true;
 }
 
-
+// 生产精灵
 function createPIXISpr() {
     //叫 SpriteUtilities 的库，该库包含许多有用的函数，用于创建Pixi精灵并使它们更易于使用。
     let su = new SpriteUtilities(PIXI);
@@ -439,6 +509,15 @@ function createPIXISpr() {
     heros.pixi_qs_fb = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_pao[5], 280, 280)); // 七实 风暴跑
     heros.pixi_klnn_bl = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_pao[6], 280, 280)); // 卡列尼娜 爆裂跑
     heros.pixi_bak_ld = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_pao[7], 280, 280)); // 比安卡零度跑
+
+    // 走路打招呼
+    heros.pixi_lf_as_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[0], 280, 280)); // 丽芙蚀暗 打招呼跑
+    heros.pixi_li_yh_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[1], 280, 280)); // 里 异火 打招呼跑
+    heros.pixi_db_yr_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[2], 280, 280)); // 渡边 夜刃 打招呼跑
+    heros.pixi_sw_zn_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[3], 280, 280)); // 神威 重能 打招呼跑
+    heros.pixi_qs_fb_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[4], 280, 280)); // 七实 风暴 打招呼跑
+    heros.pixi_klnn_bl_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[5], 280, 280)); // 卡列尼娜 爆裂 打招呼跑
+    heros.pixi_bak_ld_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[6], 280, 280)); // 比安卡零度 打招呼跑
 
     // 招手
     heros.pixi_lxy_hl_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[0], 280, 280)); // 露西亚红莲
@@ -564,6 +643,14 @@ function createPIXISpr() {
         heros.pixi_qu_ql_sad, // 曲-雀翎sad 59
         heros.pixi_cy_yl_sad, // 常羽-游麟sad 60
         heros.pixi_ln_ym_sad, // 露娜-银冕sad 61
+        // 走路打招呼
+        heros.pixi_lf_as_mbye,
+        heros.pixi_li_yh_mbye,
+        heros.pixi_db_yr_mbye,
+        heros.pixi_sw_zn_mbye,
+        heros.pixi_qs_fb_mbye,
+        heros.pixi_klnn_bl_mbye,
+        heros.pixi_bak_ld_mbye,
     ]
     // 添加到舞台
     setSprAttr(heros.heroArrs);
@@ -572,16 +659,28 @@ function createPIXISpr() {
 
 // 初始化精灵状态
 function setSprAttr(pixiSprArr) {
-
     for (var i = 0; i < pixiSprArr.length; i++) {
 
         pixiSprArr[i].visible = false;
         //Change the sprite's size
-        pixiSprArr[i].width = heros.loading_hero_w;
-        pixiSprArr[i].height = heros.loading_hero_h;
+        // pixiSprArr[i].width = heros.loading_hero_w;
+        // pixiSprArr[i].height = heros.loading_hero_h;
+        pixiSprArr[i].width = 280;
+        pixiSprArr[i].height = 280;
 
         //设置动画精灵的速度
         pixiSprArr[i].animationSpeed = 0.15;
+
+        pixiSprArr[i].anchor.x = 0.5;
+        pixiSprArr[i].anchor.y = 0.5;
+
+        pixiSprArr[i].x = heros.loading_hero_w / 2;
+        pixiSprArr[i].y = heros.loading_hero_h - 70;
+
+        // pixiSprArr[i].scale.x = 0.4;
+        // pixiSprArr[i].scale.y = 0.4;
+        pixiSprArr[i].scale.x = heros.loading_hero_w / 750;
+        pixiSprArr[i].scale.y = heros.loading_hero_w / 750;
 
         //把动画精灵添加到舞台
         heros.app.stage.addChild(pixiSprArr[i]);
@@ -592,3 +691,55 @@ function setSprAttr(pixiSprArr) {
     // pixiSprArr[0].visible = true;
     // pixiSprArr[8].visible = true;
 }
+
+// 改变精灵的位置
+function setSprPos(pixiSprArr, num) {
+    for (var i = 0; i < pixiSprArr.length; i++) {
+        // pixiSprArr[i].y = heros.loading_hero_h - (heros.loading_hero_h/3);
+        pixiSprArr[i].y = heros.loading_hero_h - (heros.loading_hero_h / num);
+    }
+}
+
+// 隐藏全部精灵
+function hideAllSpr(pixiSprArr) {
+    for (var i = 0; i < pixiSprArr.length; i++) {
+        pixiSprArr[i].visible = false;
+    }
+}
+
+// resize宽口更新精灵位置
+function resizeSpr(pixiSprArr) {
+
+    heros.loading_hero_w = window.innerWidth;
+    heros.loading_hero_h = window.innerHeight;
+
+    heros.app.renderer.resize(heros.loading_hero_w, heros.loading_hero_h);
+
+    for (var i = 0; i < pixiSprArr.length; i++) {
+
+        pixiSprArr[i].x = heros.loading_hero_w / 2;
+        pixiSprArr[i].y = heros.loading_hero_h - 70;
+
+        pixiSprArr[i].scale.x = heros.loading_hero_w / 750;
+        pixiSprArr[i].scale.y = heros.loading_hero_w / 750;
+    }
+}
+
+// resize窗口更新缩放变量
+function gloScale() {
+    var scaleH = ($(window).height() * 2) / 1334;
+    console.log($(window).height() * 2)
+    if (scaleH > 1) scaleH = 1;
+    // alert(scaleH)
+    $('.glo-scale').css({
+        transform: ' scale(' + scaleH + ')'
+    })
+}
+
+// 监听窗口缩放
+$(window).resize(function() {
+    // 更细缩放比例
+    gloScale();
+    // 更新画布
+    resizeSpr(heros.heroArrs);
+});

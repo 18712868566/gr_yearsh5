@@ -16,8 +16,10 @@
     goPlayNumber:555, // 出站最多id
     heroArrs:[],
     // 获取父元素宽高
-    loading_hero_w : document.getElementById('loading_hero').clientWidth,
-    loading_hero_h : document.getElementById('loading_hero').clientHeight
+    loading_hero_w : document.body.clientWidth,
+    loading_hero_h : document.body.clientHeight
+    // loading_hero_w : document.getElementById('loading_hero').clientWidth,
+    // loading_hero_h : document.getElementById('loading_hero').clientHeight
 
 }
 
@@ -34,6 +36,29 @@ let imgURL_pao = [
     ""+heros.staticURL+"images/hero/卡列-爆裂/卡列-爆裂-走路/卡列-爆裂-走路_spr.png",
     ""+heros.staticURL+"images/hero/比安卡-零度/比安卡-零度-走路/bianka-lingdu走路_spr.png"
 ];
+
+
+// 走路打招呼
+let imgURL_move = [
+    "../images/hero/丽芙-蚀暗/丽芙-蚀暗-打招呼+走路/丽芙-蚀暗-打招呼+走路_spr.png",
+    "../images/hero/里-异火/里-异火-打招呼-走路/里-异火-打招呼-走路_spr.png",
+    "../images/hero/渡边-夜刃/渡边-夜刃-打招呼+走路/渡边-夜刃-打招呼-走路_spr.png",
+
+    "../images/hero/神威-重能/神威-重能-打招呼+走路/神威-重能-打招呼-走路_spr.png",
+    "../images/hero/七实-风暴/七实-风暴-打招呼+走路/七实-风暴-打招呼-走路_spr.png",
+    "../images/hero/卡列-爆裂/卡列-爆裂-打招呼+走路/卡列-爆裂-打招呼-走路_spr.png",
+    "../images/hero/比安卡-零度/比安卡-零度-打招呼+走路/比安卡-零度-打招呼-走路_spr.png"
+];
+
+// // 走路打招呼
+// heros.pixi_lf_as_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[0], 280, 280)); // 丽芙蚀暗 打招呼跑
+// heros.pixi_li_yh_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[1], 280, 280)); // 里 异火 打招呼跑
+// heros.pixi_db_yr_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[2], 280, 280)); // 渡边 夜刃 打招呼跑
+// heros.pixi_sw_zn_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[3], 280, 280)); // 神威 重能 打招呼跑
+// heros.pixi_qs_fb_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[4], 280, 280)); // 七实 风暴 打招呼跑
+// heros.pixi_klnn_bl_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[5], 280, 280)); // 卡列尼娜 爆裂 打招呼跑
+// heros.pixi_bak_ld_mbye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_move[6], 280, 280)); // 比安卡零度 打招呼跑
+
 
 
 // 挥手动作

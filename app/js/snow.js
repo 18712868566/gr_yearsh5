@@ -111,7 +111,9 @@
         this.wrap.style.background = 'transparent';
 
         // 将容器插入到body末尾
-        document.body.appendChild(this.wrap);
+
+        document.querySelector('.page2').appendChild(this.wrap);
+        // document.body.appendChild(this.wrap);
 
         // 保留this
         var _this = this;

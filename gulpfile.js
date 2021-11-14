@@ -47,7 +47,7 @@ function clean() {
  */
 function css() {
     return gulp.src('./app/css/**/*.css') // 读取css 文件路径
-        .pipe(concat('build.min.css')) //合并匹配到的指定类型文件并命名为 "build.min.css"
+        // .pipe(concat('build.min.css')) //合并匹配到的指定类型文件并命名为 "build.min.css"
         .pipe(autoprefixer({
             cascade: true // 添加前缀前是否压缩 默认值 true
         }))
@@ -213,7 +213,7 @@ exports.copyVideo = copyVideo;
 exports.copyBowerFile = copyBowerFile;
 exports.setHtmlmin = setHtmlmin;
 
-exports.jsBrowserify = jsBrowserify;
+// exports.jsBrowserify = jsBrowserify;
 
 exports.browserify = browserify;
 

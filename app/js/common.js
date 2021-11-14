@@ -57,6 +57,8 @@ dialog = {
             "margin-left": "-" + mL + "px",
             "opacity": "1"
         }, "fast");
+
+        gloScale();
     },
     //改变窗口大小时改变弹出层的位置
     alertInfoPo: function() {
@@ -243,7 +245,7 @@ dialog = {
     alertPopLogin() {
         var LoginHtml = `
             <input type="text" class="loadNum pop_sprite" placeholder="指揮官IDを入力">
-            <a href="javascript:;" class="btn btn_login pop_sprite"></a>
+            <a href="" class="btn btn_login pop_sprite"></a>
         `;
 
         dialog.showInfo(`<div class="pop pop_login pop_sprite">
@@ -281,7 +283,7 @@ dialog = {
         </div>
          `;
 
-        dialog.showInfo(`<div class="pop pop_lott_end  pop_sprite">
+        dialog.showInfo(`<div class="pop pop_lott_end  glo-scale  pop_sprite">
             <div class="borbox">
                 ${lottEndHtml}
             </div>
@@ -295,7 +297,7 @@ dialog = {
             <a href="https://ca.herogames.com.tw/six-years/auth.html?authclient=facebook" class="btn btn_login"></a>
         `;
 
-        dialog.showInfo(`<div class="pop pop_fblogin">
+        dialog.showInfo(`<div class="pop pop_fblogin ">
             <div class="borbox">
                 ${fbLoginHtml}
             </div>
@@ -333,7 +335,7 @@ dialog = {
             </div>
         </div>
          `;
-        dialog.showInfo(`<div class="pop">
+        dialog.showInfo(`<div class="pop glo-scale">
             <div class="borbox">
                 ${lottHtml}
             </div>
@@ -341,6 +343,7 @@ dialog = {
 
 
         $(".pop_hdgz_cc").mCustomScrollbar();
+
     },
     // 活动规则2
     alertPopHDGZ_yh: function() {
@@ -512,14 +515,24 @@ dialog = {
                 </div>
             </div>
          `;
-        dialog.showInfo(`<div class="pop">
+        dialog.showInfo(`<div class="pop glo-scale">
             <div class="borbox">
                 ${lottHtml}
             </div>
         </div>`)
 
 
-        $(".pop_hdgz_ccc").mCustomScrollbar();
+        $(".pop_hdgz_ccc").mCustomScrollbar({
+            callbacks:{
+                whileScrolling:function(){
+                    // $("#mcs-top").text(this.mcs.top); // 距离顶部像素
+                    // $("#mcs-dragger-top").text(this.mcs.draggerTop); // 移动端滑动位置
+                    // $("#mcs-top-pct").text(this.mcs.topPct+"%");  // 滚动进度
+                },
+                alwaysTriggerOffsets:false
+            }
+        });
+
     },
 }
 

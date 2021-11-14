@@ -2,150 +2,460 @@
 @import url("hover-min.css");
 
 /*声明 WebFont*/
-@font-face { font-family: 'rounded';
+@font-face {
+    font-family: 'rounded';
     src: url('../font/rounded.eot');
-    src: url('../font/rounded.eot?#font-spider') format('embedded-opentype'),
-    url('../font/rounded.woff') format('woff'),
-    url('../font/rounded.ttf') format('truetype'),
-    url('../font/rounded.svg') format('svg');
-    font-weight: normal; font-style: normal; }
+    src: url('../font/rounded.eot?#font-spider') format('embedded-opentype'), url('../font/rounded.woff') format('woff'), url('../font/rounded.ttf') format('truetype'), url('../font/rounded.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-.font-rounded { font-family: 'rounded'; color: #fff; }
+.font-rounded {
+    font-family: 'rounded';
+    color: #fff;
+}
 
 /* CSS Document wlo:Cflower */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+}
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border: 0 none; font: inherit; margin: 0; padding: 0; }
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-ol, ul { list-style: outside none none; }
-blockquote, q { quotes: none; }
-blockquote::before, blockquote::after, q::before, q::after { content: none; }
-table { border-collapse: collapse; border-spacing: 0; }
-* { box-sizing: border-box; outline: 0 none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-input, textarea { border-radius: 0; outline: 0 none; resize: none; -webkit-appearance: none;    /*去掉iOS下input的默认内阴影*/ }
-.clearfix:after, .clearfloat:after { visibility: hidden; display: block; font-size: 0; content: ""; clear: both; height: 0; }
-html { font-family: "Arial", "Heiti SC", "Helvetica", "Microsoft YaHei", sans-serif; -webkit-text-size-adjust: none; overflow: hidden;position: relative;}
-body { margin: 0 auto; min-width: 3.2rem; position: relative; width: 100%; height: 100%; background: #fefefe;overflow: hidden;position: relative; }
-a { text-decoration: none; color: inherit; }
-.clearfloat:after { clear: both; content: ""; display: block; height: 0; visibility: hidden; }
-.ridius { border-radius: 5px; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: outside none none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote::before, blockquote::after, q::before, q::after {
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0 none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input, textarea {
+    border-radius: 0;
+    outline: 0 none;
+    resize: none;
+    -webkit-appearance: none;    /*去掉iOS下input的默认内阴影*/
+}
+
+.clearfix:after, .clearfloat:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+html {
+    font-family: "Arial", "Heiti SC", "Helvetica", "Microsoft YaHei", sans-serif;
+    -webkit-text-size-adjust: none;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    margin: 0 auto;
+    min-width: 3.2rem;
+    width: 100%;
+    height: 100%;
+    background: #fefefe;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.clearfloat:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.ridius {
+    border-radius: 5px;
+}
 
 /* 假如添加了video标签,可能会出现video标签默认置顶的情况,解决这个bug可以通过样式设置来规避;*/
-.compatibleStyle { backface-visibility: hidden; -webkit-backface-visibility: hidden;    /* Chrome 和 Safari */ -moz-backface-visibility: hidden;    /* Firefox */ -ms-backface-visibility: hidden;    /* Internet Explorer */ -webkit-perspective: 0; -webkit-transform: translate3d(0, 0, 0); visibility: visible; }
+.compatibleStyle {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;    /* Chrome 和 Safari */
+    -moz-backface-visibility: hidden;    /* Firefox */
+    -ms-backface-visibility: hidden;    /* Internet Explorer */
+    -webkit-perspective: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    visibility: visible;
+}
 
 /*弹出层遮罩div*/
-.black_overlay { display: none; position: absolute; top: 0%; left: 0%; bottom: 0; right: 0; width: 100%; height: 100%; background-color: #000; z-index: 988; -moz-opacity: 0.5; opacity: .50; filter: alpha(opacity=50); }
-.btn { display: block; cursor: pointer; }
-.pos { position: absolute; }
-.fl { float: left; }
-.fr { float: right; }
-.w750 { width: 100%; }
-.curp { cursor: pointer; }
-.imgcove { width: 100%; height: 100%; display: block; border: none; }
-.yellow { color: #ffd800; }
-.show { display: block; }
-.zIndex2 { z-index: 9; position: relative; }
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 988;
+    -moz-opacity: 0.5;
+    opacity: .50;
+    filter: alpha(opacity=50);
+}
+
+.btn {
+    display: block;
+    cursor: pointer;
+}
+
+.pos {
+    position: absolute;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.w750 {
+    width: 100%;
+}
+
+.curp {
+    cursor: pointer;
+}
+
+.imgcove {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
+
+.yellow {
+    color: #ffd800;
+}
+
+.show {
+    display: block;
+}
+
+.zindextop {
+    z-index: 9;
+}
 
 /*app*/
-#wrap { position: relative; overflow: hidden; max-width: 7.5rem; margin: 0 auto; height: 100vh; height: calc(var(--vh, 1vh) * 100); }
-
+#wrap {
+    position: relative;
+    overflow: hidden;
+    max-width: 7.5rem;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+.pos-center{
+    width: 100%;
+    height: 10.05rem;
+    /*background: rgba(0,0,0,.5);*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
 /*loading*/
-.loading,.page1 { width: 7.5rem; height: 100%; position: fixed; top: 0; left: 50%; margin-left: -3.75rem; overflow: hidden; background: url(../images/bg.jpg) no-repeat 0 0 / 100% 13.34rem; z-index: 9; }
+.loading, .page1 {
+    width: 7.5rem;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    margin-left: -3.75rem;
+    overflow: hidden;
+    background: url(../images/bg.jpg) no-repeat 0 0 / 100% 13.34rem;
+    z-index: 9;
+}
 
-.load_icon{
-    width: 2.8rem; height: 2.8rem; position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%);z-index: 2;
+.loading .load_icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
     background: url(../images/hero/露西亚-红莲/露西亚-红莲-走路/lxy_hl_move.png) no-repeat 0 0 / 2.8rem 30.8rem;
 }
 
-.goload_icon { animation: load_icon_go 1.2s steps(10) infinite;
-    -webkit-animation: load_icon_go 1.2s steps(10) infinite }
+.goload_icon {
+    animation: load_icon_go 1.2s steps(10) infinite;
+    -webkit-animation: load_icon_go 1.2s steps(10) infinite
+}
 
 @keyframes load_icon_go {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 100%; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+
 }
 
 /*进度条*/
-.progress_wrap { width: 6.6rem; height: .58rem; position: absolute; background: url(../images/loading/progress_wrap.png) no-repeat 0 0 / 100% 100%; overflow: hidden; top: 60%; left: 50%; transform: translate(-50%, -50%); }
-.progress_wrap .progress_cc{
-    width: 6.4rem; height: 0.38rem;
+.progress_wrap {
+    width: 6.6rem;
+    height: .58rem;
+    position: absolute;
+    background: url(../images/loading/progress_wrap.png) no-repeat 0 0 / 100% 100%;
+    overflow: hidden;
+    top: 5.8rem;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
-.progress { width: 100%; height: 0.38rem; border-radius: 0.18rem; top: 0.09rem; left: 0.09rem; position: relative; background-color: #fcdf71; background-size: 1rem 1rem; background-image: linear-gradient(to bottom, #fcdf71, rgba(255, 129, 61, 1) 50%, transparent 60%, #ff813d); }
-.progress span { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%;
-border-radius: 0.18rem; background: url(../images/loading/progress.png) 0 center repeat;
--webkit-animation: warning-animation 5s infinite linear;
--moz-animation: warning-animation 5s infinite linear;
-animation: warning-animation 5s infinite linear;
+
+.progress_wrap .progress_cc {
+    width: 6.4rem;
+    height: 0.38rem;
+}
+
+.progress {
+    width: 100%;
+    height: 0.38rem;
+    border-radius: 0.18rem;
+    top: 0.09rem;
+    left: 0.09rem;
+    position: relative;
+    background-color: #fcdf71;
+    background-size: 1rem 1rem;
+    background-image: linear-gradient(to bottom, #fcdf71, rgba(255, 129, 61, 1) 50%, transparent 60%, #ff813d);
+}
+
+.progress span {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 0.18rem;
+    background: url(../images/loading/progress.png) 0 center repeat;
+    -webkit-animation: warning-animation 5s infinite linear;
+    -moz-animation: warning-animation 5s infinite linear;
+    animation: warning-animation 5s infinite linear;
 }
 
 @-webkit-keyframes warning-animation {
-    0% { background-position: 0 0; }
-    100% { background-position: 2em 0; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 2em 0;
+    }
+
 }
+
 @-moz-keyframes warning-animation {
-    0% { background-position: 0 0; }
-    100% { background-position: 3em 0; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 3em 0;
+    }
+
 }
+
 @keyframes warning-animation {
-    0% { background-position: 0 0; }
-    100% { background-position: 2em 0; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 2em 0;
+    }
+
 }
 
 /*旗子*/
-.top_qizi { width: 7.5rem; height: 1.2rem; background: url(../images/top_qizi.png) no-repeat 0 0 / 100% 100%;
-    position: relative;
+.top_qizi {
+    width: 7.5rem;
+    height: 1.2rem;
+    background: url(../images/top_qizi.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 10;
- }
-
+}
 
 /*logo*/
-.loading .logo { width: 5.18rem; height: 2.12rem; background: url(../images/loading/logo.png) no-repeat 0 0 / 100% 100%; position: absolute; top: 1.7rem; left: 50%; transform: translate(-50%, 0); }
+.loading .logo {
+    width: 5.18rem;
+    height: 2.12rem;
+    background: url(../images/loading/logo.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    top: 0.7rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
 
 /*花海*/
-.flowers { width: 12.06rem; height: 3.2rem;    /*background: red;*/ position: absolute; left: 50%; margin-left: -6.02rem; bottom: 0; }
-.flowers:after { content: ''; display: block; width: 7.5rem; height: 0.54rem; background: url(../images/flowers1.png) no-repeat 0 0 / 100% 100%; position: absolute; bottom: 0; left: 50%; margin-left: -3.75rem; z-index: 5; }
-.flsh2 { width: 12.06rem; height: 1.9rem; background: url(../images/flowers2.png) repeat-x 0 0 / 100% 100%; position: absolute; bottom: 0; z-index: 4; animation: flowersBgMove ease-in-out 10s infinite alternate; -webkit-animation: flowersBgMove ease-in-out 10s infinite alternate;    /* Safari 与 Chrome */ animation-delay: 300ms }
-.flsh3 { width: 12.06rem; height: 2.3rem; background: url(../images/flowers3.png) repeat-x 0 0 / 100% 100%; position: absolute; bottom: 0; z-index: 3; animation: flowersBgMove ease-in-out 11s infinite alternate-reverse; -webkit-animation: flowersBgMove ease-in-out 11s infinite alternate-reverse;    /* Safari 与 Chrome */ animation-delay: 300ms }
-.flsh4 { width: 12.06rem; height: 3.46rem; background: url(../images/flowers4.png) repeat-x 0 0 / 100% 100%; position: absolute; bottom: 0; z-index: 2; animation: flowersBgMove ease-in-out 12s infinite alternate; -webkit-animation: flowersBgMove ease-in-out 12s infinite alternate;    /* Safari 与 Chrome */ animation-delay: 300ms }
-.flsh5 { width: 12.06rem; height: 3.44rem; background: url(../images/flowers5.png) repeat-x 0 0 / 100% 100%; position: absolute; bottom: 0; z-index: 1; animation: flowersBgMove ease-in-out 13s infinite alternate-reverse; -webkit-animation: flowersBgMove ease-in-out 13s infinite alternate-reverse;    /* Safari 与 Chrome */ animation-delay: 300ms }
+.flowers {
+    width: 12.06rem;
+    height: 3.2rem;    /*background: red;*/
+    position: absolute;
+    left: 50%;
+    margin-left: -6.02rem;
+    bottom: 0;
+}
+
+.flowers:after {
+    content: '';
+    display: block;
+    width: 7.5rem;
+    height: 0.54rem;
+    background: url(../images/flowers1.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3.75rem;
+    z-index: 5;
+}
+
+.flsh2 {
+    width: 12.06rem;
+    height: 1.9rem;
+    background: url(../images/flowers2.png) repeat-x 0 0 / 100% 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 4;
+    animation: flowersBgMove ease-in-out 10s infinite alternate;
+    -webkit-animation: flowersBgMove ease-in-out 10s infinite alternate;    /* Safari 与 Chrome */
+    animation-delay: 300ms
+}
+
+.flsh3 {
+    width: 12.06rem;
+    height: 2.3rem;
+    background: url(../images/flowers3.png) repeat-x 0 0 / 100% 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    animation: flowersBgMove ease-in-out 11s infinite alternate-reverse;
+    -webkit-animation: flowersBgMove ease-in-out 11s infinite alternate-reverse;    /* Safari 与 Chrome */
+    animation-delay: 300ms
+}
+
+.flsh4 {
+    width: 12.06rem;
+    height: 3.46rem;
+    background: url(../images/flowers4.png) repeat-x 0 0 / 100% 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    animation: flowersBgMove ease-in-out 12s infinite alternate;
+    -webkit-animation: flowersBgMove ease-in-out 12s infinite alternate;    /* Safari 与 Chrome */
+    animation-delay: 300ms
+}
+
+.flsh5 {
+    width: 12.06rem;
+    height: 3.44rem;
+    background: url(../images/flowers5.png) repeat-x 0 0 / 100% 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    animation: flowersBgMove ease-in-out 13s infinite alternate-reverse;
+    -webkit-animation: flowersBgMove ease-in-out 13s infinite alternate-reverse;    /* Safari 与 Chrome */
+    animation-delay: 300ms
+}
 
 /*数*/
-.foo_shu { width: 7.5rem; height: 2.72rem; background: url(../images/loading/shu.png) no-repeat 0 0 / 100% 100%; position: absolute; left: 50%; margin-left: -3.75rem; bottom: 0; z-index: 9; }
-
+.foo_shu {
+    width: 7.5rem;
+    height: 2.72rem;
+    background: url(../images/loading/shu.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3.75rem;
+    bottom: 0;
+    z-index: 9;
+}
 
 @keyframes flowersBgMove {
-    from { background-position: 2rem 0; }
-    to { background-position: -2.0rem 0; }
+    from {
+        background-position: 2rem 0;
+    }
+
+    to {
+        background-position: -2.0rem 0;
+    }
+
 }
+
 @-webkit-keyframes flowersBgMove {
-    from { background-position: 2rem 0; }
-    to { background-position: -2.0rem 0; }
+    from {
+        background-position: 2rem 0;
+    }
+
+    to {
+        background-position: -2.0rem 0;
+    }
+
 }
-
-
 
 /*page1*/
-.page1{
+.page1 {
     display: none;
 }
 
-.glo_scale{
-    transform: scale(.9);
-    z-index: 10;
-}
 .page1 .logo {
     width: 6.88rem;
     height: 2.92rem;
     background: url(../images/logo.png) no-repeat 0 0 / 100% 100%;
     position: absolute;
-    /*top: 1.7rem;*/
     top: 7.2rem;
     left: 50%;
-    transform: translate(-50%, 0) ;
-    z-index: 6;
+    transform: translate(-50%, 0);
+    z-index: 1000;
 }
 
-
-.page1_footer_btns,.page2_footer_btns{
+.page1_footer_btns, .page2_footer_btns {
     text-align: center;
     position: absolute;
     bottom: 0;
@@ -153,34 +463,37 @@ animation: warning-animation 5s infinite linear;
     left: 0;
     right: 0;
     height: 1.44rem;
-    z-index: 9;
+    z-index: 999;
 }
 
-.page1_imgArr{
+.page1_imgArr {
     background: url(../images/page1/page1.png) no-repeat 0 0 / 14.9rem 22.5rem;
 }
-.page1_footer_btns .btn{
+
+.page1_footer_btns .btn {
     position: absolute;
     text-indent: -999em;
 }
-.page1_footer_btns .btn_gz{
+
+.page1_footer_btns .btn_gz {
     left: 0;
     bottom: 0;
-    width:1.92rem;
-    height:1.34rem;
+    width: 1.92rem;
+    height: 1.34rem;
     background-position: -12.98rem -13.34rem;
 }
 
-.page1_footer_btns .btn_lott{
+.page1_footer_btns .btn_lott {
     right: 0;
     bottom: 0;
-    width:1.92rem;
-    height:1.34rem;
+    width: 1.92rem;
+    height: 1.34rem;
     background-position: -11.06rem -13.34rem;
 }
-.page1_footer_btns .btn_play{
-    width:3.56rem;
-    height:1.44rem;
+
+.page1_footer_btns .btn_play {
+    width: 3.56rem;
+    height: 1.44rem;
     background-position: -7.5rem -13.34rem;
     left: 50%;
     margin-left: -1.78rem;
@@ -188,172 +501,181 @@ animation: warning-animation 5s infinite linear;
 }
 
 /*转动光圈*/
-.character_set{}
-.character_set .flash_line{
-    width:13.34rem;
+.character_set {
+}
+
+.flash_line {
+    width: 13.34rem;
     height: 13.34rem;
     background-position: -0px -0px;
-
     position: absolute;
     top: 50%;
     left: 50%;
     margin-left: -6.67rem;
     margin-top: -6.67rem;
-
     animation: flash_line 5s infinite linear;
     -webkit-animation: flash_line 5s infinite linear;
 }
 
-
-@keyframes flash_line
-{
+@keyframes flash_line {
     from {
         transform: rotate(0);
     }
-    to {
-        transform:  rotate(360deg);
-    }
-}
 
-@-webkit-keyframes flash_line
-{
-    from {
-        transform: rotate(0);
-    }
     to {
         transform: rotate(360deg);
     }
+
 }
 
-.character_set .chsets{
-    width:7.5rem;
-    height:9.16rem;
+@-webkit-keyframes flash_line {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.character_set .chsets {
+    width: 7.5rem;
+    height: 9.16rem;
     background-position: -0px -13.34rem;
     position: absolute;
     left: 50%;
     margin-left: -3.75rem;
-    top: .3rem;
+    top: -.3rem;
     z-index: 5;
 }
 
-
-
 /*page2*/
-.page2{
+.page2 {
     width: 100%;
     height: 100%;
     background: url(../images/page2/bg.jpg) no-repeat 0 0 / 100% 15.0rem;
-    position: relative;
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     transition: background 600ms;
+    opacity: 0;
 }
 
-.page2 .txtYun{
-    width:6.8rem;
+.page2 .txtYun {
+    width: 6.8rem;
     height: 9.64rem;
     background: url(../images/page2/yun.png) no-repeat 0 0 / 100% 100%;
     position: absolute;
-    top: 0.28rem;
+    top: -0.5rem;
     left: 50%;
     margin-left: -3.4rem;
     z-index: 3;
     animation-duration: 8s;
 }
 
-
-
-
-.ball_cun,.ball_qiu{
+.ball_cun, .ball_qiu {
     /*display: none;*/
-    width:19.76rem;
+    width: 19.76rem;
     height: 19.76rem;
     position: absolute;
     left: 50%;
-    margin-left:-9.88rem;
-    /*top: 82%;*/
-    bottom: -17.0rem;
+    margin-left: -9.88rem;    /*top: 82%;*/
+    bottom: -19.0rem;
     opacity: 0;
 }
 
-.rotate_ball{
+.rotate_ball {
     animation: flash_line 50s infinite linear;
     -webkit-animation: flash_line 50s infinite linear;
 }
-.ball_cun{
+
+.ball_cun {
     background: url(../images/ball_cun.png) no-repeat 0 0 / 19.76rem 19.76rem;
 }
-.ball_qiu{
+
+.ball_qiu {
     background: url(../images/ball_qiu.png) no-repeat 0 0 / 19.76rem 19.76rem;
 }
 
-.ball_dong{
+.ball_dong {
     width: 7.5rem;
     height: 3.04rem;
     position: absolute;
     background: url(../images/ball_dong.png) no-repeat 0 0 / 7.5rem 3.04rem;
-    bottom: 0;
+    bottom: -1.5rem;
     left: 0;
     opacity: 0;
-
 }
 
 /*跑动露西亚*/
 #loading_hero {
-    width: 2.8rem;
+    /*width: 2.8rem;
     height: 2.8rem;
     position: absolute;
     left: 50%;
-    bottom: 8%;
+    bottom: -0.5rem;
     transform: translate(-50%, 0);
-    z-index: 3;
+    z-index: 3;*/
+    width: 100%
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 12;
+}
+#loading_hero canvas{
+    width: 100%;
+    height: 100%;
 }
 
-
-.txtYun .txts{
+.txtYun .txts {
     width: 100%;
     height: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
-.txtYun .txts p{
+
+.txtYun .txts p {
     width: 70%;
     font-size: 0.4rem;
     color: #366783;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
-.txtYun .txts p span{
+.txtYun .txts p span {
     display: inline-block;
 }
-.txtYun .txts p span:nth-child(1){
+
+.txtYun .txts p span:nth-child(1) {
     margin-bottom: 1.4rem;
     display: block;
 }
 
-.txtYun .txts p span i,.txtYun .txts p i{
+.txtYun .txts p span i, .txtYun .txts p i {
     color: #ffa14d;
 }
 
-
-.txtYun .txts p.txt031{
+.txtYun .txts p.txt031 {
     top: 38%;
 }
 
-
 /*结束界面*/
-.page2_end{
+.page2_end {
     background: url(../images/page2end/page2end.jpg) no-repeat 0 0 / 100% 15.0rem;
     transition: background 600ms;
-    position: relative;
 }
 
-.page2_end:after{
+.page2_end:after {
     content: '';
-    display: block;
-    /*background: url(../images/page2end/star.png) no-repeat / 100% 13.34rem;*/
+    display: block;    /*background: url(../images/page2end/star.png) no-repeat / 100% 13.34rem;*/
     background: url(../images/page2end/star.png) repeat-y 0 0 / 100% 13.34rem;
     position: absolute;
     width: 100%;
@@ -364,85 +686,94 @@ animation: warning-animation 5s infinite linear;
     -webkit-animation: afterAniBg 50s infinite linear;
 }
 
-
-@keyframes afterAniBg
-{
-    0%{
+@keyframes afterAniBg {
+    0% {
         transform: translateY(0);
     }
-    100%{
-        transform:  translateY(-50%);
+
+    100% {
+        transform: translateY(-50%);
     }
+
 }
 
-@-webkit-keyframes afterAniBg
-{
-    0%{
+@-webkit-keyframes afterAniBg {
+    0% {
         transform: translateY(0);
     }
-    100%{
-        transform:  translateY(-50%);
+
+    100% {
+        transform: translateY(-50%);
     }
+
 }
 
-
-.page2_footer_btns .btn{
-    background:url(../images/page2end/btns.png) no-repeat  0 0 / 7.4rem 1.44rem;
+.page2_footer_btns .btn {
+    background: url(../images/page2end/btns.png) no-repeat  0 0 / 7.4rem 1.44rem;
     position: absolute;
     text-indent: -999em;
 }
-.page2_footer_btns .btn_top{
-    width:1.92rem;
-    height:1.34rem;
+
+.page2_footer_btns .btn_top {
+    width: 1.92rem;
+    height: 1.34rem;
     background-position: 0 0;
     bottom: 0;
     left: 0;
 }
-.page2_footer_btns .btn_goLott{
-    width:3.56rem;
-    height:1.44rem;
+
+.page2_footer_btns .btn_goLott {
+    width: 3.56rem;
+    height: 1.44rem;
     background-position: -3.84rem 0;
     bottom: 0;
     left: 50%;
-    margin-left:-1.78rem;
+    margin-left: -1.78rem;
 }
-.page2_footer_btns .btn_share{
-    width:1.92rem;
-    height:1.34rem;
+
+.page2_footer_btns .btn_share {
+    width: 1.92rem;
+    height: 1.34rem;
     background-position: -1.92rem 0;
     right: 0;
     bottom: 0;
 }
 
-
-
-
 @keyframes rotate {
-  from {
-    transform: rotate(0deg)
-  }
-  to {
-    transform: rotate(360deg)
-  }
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+
 }
+
 /*即: 设备屏幕可见宽度为375px， 可见高度为812px及设备像素比为3*/
-@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) { }
+@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
+}
 
 /*//iphone Xs Max*/
-@media only screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:3) { }
+@media only screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:3) {
+}
 
 /*//iphone XR*/
-@media only screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2) { }
+@media only screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2) {
+}
 
 /* 兼容iphone5 */
-@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2) { }
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2) {
+}
 
 /*兼容iphone6，iphone7，iphone8s*/
-@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2) { }
+@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2) {
+}
 
 /*兼容iphone6 Plus,iphone7 Plus,iphone8 Plus*/
-@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2) { }
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2) {
+}
 
-.hide{
+.hide {
     display: none;
 }
