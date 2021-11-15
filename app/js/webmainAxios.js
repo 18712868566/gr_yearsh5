@@ -2,7 +2,7 @@
  * @Author: lixuefeng
  * @Date:   2019-07-15 11:27:25
  * @Last Modified by:   A
- * @Last Modified time: 2021-06-03 13:53:28
+ * @Last Modified time: 2021-11-15 19:11:45
  * @File_path:  E:\0_job_progect\20200101_huaer\gulpfile_xiaochu\app\js\webmain$Axios.js
  */
 /*========================Axios====================*/
@@ -62,7 +62,7 @@ var Projet_Global_Parameter = {
     getUrlData: function() {
         url = window.location.href; //获取当前页面的url
         // console.log(url)
-        if (url.indexOf('?from_uid') == -1) {
+        if (url.indexOf('?role_id') == -1) {
             arr = url;
             // console.log('没找到');
         } else {
@@ -92,7 +92,7 @@ var Projet_Global_Parameter = {
                     Projet_Global_Parameter.upData = '';
                 } else {
                     Projet_Global_Parameter.upData = Projet_Global_Parameter.aUrlData[0];
-                    // console.log('看见参数了' + Projet_Global_Parameter.upData)
+                    console.log('看见参数了' + Projet_Global_Parameter.upData)
                 }
             }
         };
@@ -131,8 +131,37 @@ var Projet_Global_Parameter = {
             return false;
         }
     },
+    // 检查用户信息
+    getCheckRoleId: async function(gameId){
+        var res = await instance.get('http://grayraven-jp.demo.herogame.com/first-year/check-role-id',{
+            params:{
+                user_id:gameId
+            }
+        });
+
+        console.log(res.data)
+        var data = res.data.data;
+
+        if (res.data.code == 0) {
+            // 登陆状态
+            sessionStorage.setItem('sess-isLogin', JSON.stringify(true));
+            // 分享状态
+            sessionStorage.setItem('sess-isShare', JSON.stringify(data.user_info.is_share));
+            // 当前积分
+            sessionStorage.setItem('sess-left_points', JSON.stringify(data.user_info.left_points));
+
+            // 新玩家
+            if (data.is_new == 0) {
+
+            }
+            // 老玩家
+            if (data.is_new == 1) {
+
+            }
+        }
+    },
     // 获取用户信息
-    getUserInfo:async function(gameId){
+    getUserInfo: async function(){
         var res = await instance.post('/first-year/get-user-info',{
             role_id:gameId
         });
@@ -152,19 +181,10 @@ var Projet_Global_Parameter = {
 
 
 
-/*
-* 接口问题：
-* 1-获取用户信息少，分享状态
-* 2-领取奖励状态 0 - 1 - 2
-* 3-加一个奖励列表的接口 或 背包接口
-* 4-晚安电话少个一个提交按钮 和 二次确认弹框 和成功弹框
-*/
-
-
 $(function() {
 
     // 获取用户信息
-    // Projet_Global_Parameter.getUserInfo();
+    Projet_Global_Parameter.getUserInfo();
 
     // 如果是从游戏内进入
     // 截取url中的id参数
@@ -173,40 +193,44 @@ $(function() {
 
 
 
+
     // 如果是从链接进入
     // 登录输入id
     // 判断新老用户 new --> page1 || old --> index
     // 登录完毕,进入数据展示
-
-
-    // 登录
+    // 登录弹框
     $('.btn_play').on('click', function(event) {
         event.preventDefault();
         //登录弹框
         dialog.alertPopLogin();
     });
 
-    // 模拟登录成功
+    // 登录
     $(document).on('click','.pop_login .btn_login',function(event){
         event.preventDefault();
+
+        const loadNum = $('pop_login .loadNum').val();
+
+        Projet_Global_Parameter.getCheckRoleId(loadNum);
+
         // 登录成功
-        if (true) {
-            dialog.closeDiv();
-            $('.page1').hide();
+        // if (true) {
+        //     dialog.closeDiv();
+        //     $('.page1').hide();
 
-            gsap.fromTo(".page2", {
-                opacity: 0,
-            }, {
-                opacity: 1,
-                duration: 1
-            });
+        //     gsap.fromTo(".page2", {
+        //         opacity: 0,
+        //     }, {
+        //         opacity: 1,
+        //         duration: 1
+        //     });
 
-            // 春天落花
-            flower();
-        }else{
-            // 登录错误 从新输入
-            dialog.alertPopLoginError();
-        }
+        //     // 春天落花
+        //     flower();
+        // }else{
+        //     // 登录错误 从新输入
+        //     dialog.alertPopLoginError();
+        // }
     })
 
 

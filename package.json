@@ -31,6 +31,7 @@
     "gulp-tinypng-nokey": "^1.1.0",
     "gulp-uglify": "^3.0.2",
     "gulplog": "^1.0.0",
+    "http-proxy-middleware": "^2.0.1",
     "imagemin-pngquant": "^9.0.2",
     "vinyl-source-stream": "^2.0.0"
   }

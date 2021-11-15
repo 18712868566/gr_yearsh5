@@ -2,7 +2,7 @@
  * @Author: A
  * @Date:   2021-06-30 14:08:32
  * @Last Modified by:   A
- * @Last Modified time: 2021-11-12 19:22:01
+ * @Last Modified time: 2021-11-15 17:44:26
  */
 $(function() {
 
@@ -307,41 +307,395 @@ function showText_animate(touchNum) {
         // 根据接口返回的id, 对比本地映射插入页面
 
         // 露西亚 红莲or黎明or鸦羽
-        if (heros.touchMoreId == 1 || heros.touchMoreId == 2 || heros.touchMoreId == 3) {
+        if (heros.maxcaress_character_id == 1 || heros.maxcaress_character_id == 2 || heros.maxcaress_character_id == 3) {
             $('.txt025').html(touchHeroTopMore.lxy.speak1)
             $('.txt026').html(touchHeroTopMore.lxy.speak2)
             // 根据id 展示对应精灵
-            heros.pixi_lxy_hl_bye.visible = true;
+            if (heros.maxcaress_character_id == 1) {
+                heros.pixi_lxy_hl_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 2) {
+                heros.pixi_lxy_lm_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 3) {
+                heros.pixi_lxy_yy_bye.visible = true;
+            }
         }
 
         // 丽芙 蝕暗 or 流光 or 仰光
-        if (heros.touchMoreId == 4 || heros.touchMoreId == 5 || heros.touchMoreId == 6) {
+        if (heros.maxcaress_character_id == 4 || heros.maxcaress_character_id == 5 || heros.maxcaress_character_id == 6) {
             $('.txt025').html(touchHeroTopMore.lufu.speak1)
-            $('.txt026').html(touchHeroTopMore.lufu.speak1)
+            $('.txt026').html(touchHeroTopMore.lufu.speak2)
             // 根据id 展示对应精灵
-            heros.pixi_lf_lg_bye.visible = true;
+            if (heros.maxcaress_character_id == 4) {
+                heros.pixi_lf_as_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 5) {
+                heros.pixi_lf_lg_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 6) {
+                heros.pixi_lf_yg_bye.visible = true;
+            }
+        }
+
+        //里 异火 or 乱数
+        if (heros.maxcaress_character_id == 7 || heros.maxcaress_character_id == 8) {
+            $('.txt025').html(touchHeroTopMore.li.speak1)
+            $('.txt026').html(touchHeroTopMore.li.speak2)
+            // 根据id 展示对应精灵
+            if (heros.maxcaress_character_id == 7) {
+                heros.pixi_li_yh_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 8) {
+                heros.pixi_li_ls_bye.visible = true;
+            }
+        }
+
+        //七实 风暴 or 脉冲
+        if (heros.maxcaress_character_id == 9 || heros.maxcaress_character_id == 10) {
+            $('.txt025').html(touchHeroTopMore.qishi.speak1)
+            $('.txt026').html(touchHeroTopMore.qishi.speak2)
+            // 根据id 展示对应精灵
+            if (heros.maxcaress_character_id == 9) {
+                heros.pixi_qs_fb_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 10) {
+                heros.pixi_qs_mc_bye.visible = true;
+            }
+        }
+        // 神威 重能  or 暗能
+        if (heros.maxcaress_character_id == 11 || heros.maxcaress_character_id == 12) {
+            $('.txt025').html(touchHeroTopMore.shenwei.speak1)
+            $('.txt026').html(touchHeroTopMore.shenwei.speak2)
+            // 根据id 展示对应精灵
+            if (heros.maxcaress_character_id == 11) {
+                heros.pixi_sw_zn_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 12) {
+                heros.pixi_sw_an_bye.visible = true;
+            }
+        }
+
+        // 渡边 夜刃  or 夙星
+        if (heros.maxcaress_character_id == 13 || heros.maxcaress_character_id == 14) {
+            $('.txt025').html(touchHeroTopMore.dubian.speak1)
+            $('.txt026').html(touchHeroTopMore.dubian.speak2)
+            // 根据id 展示对应精灵
+            if (heros.maxcaress_character_id == 13) {
+                heros.pixi_db_yr_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 14) {
+                heros.pixi_db_sx_bye.visible = true;
+            }
+        }
+
+        // 比安卡 真理 or 零度
+        if (heros.maxcaress_character_id == 15 || heros.maxcaress_character_id == 16) {
+            $('.txt025').html(touchHeroTopMore.bianka.speak1)
+            $('.txt026').html(touchHeroTopMore.bianka.speak2)
+            // 根据id 展示对应精灵
+            if (heros.maxcaress_character_id == 15) {
+                heros.pixi_bak_zl_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 16) {
+                heros.pixi_bak_ld_bye.visible = true;
+            }
+        }
+
+        // 卡列尼娜 爆裂 or 烬燃
+        if (heros.maxcaress_character_id == 17 || heros.maxcaress_character_id == 18) {
+            $('.txt025').html(touchHeroTopMore.klnn.speak1)
+            $('.txt026').html(touchHeroTopMore.klnn.speak2)
+            // 根据id 展示对应精灵
+            if (heros.maxcaress_character_id == 15) {
+                heros.pixi_kl_bl_bye.visible = true;
+            }
+            if (heros.maxcaress_character_id == 16) {
+                heros.pixi_kl_rj_bye.visible = true;
+            }
+        }
+        // 露西亚-深红之渊
+        if (heros.maxcaress_character_id == 19) {
+            $('.txt025').html(touchHeroTopMore.alpha.speak1)
+            $('.txt026').html(touchHeroTopMore.alpha.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_alpha_bye.visible = true;
+        }
+
+        // 艾拉-溢彩
+        if (heros.maxcaress_character_id == 20) {
+            $('.txt025').html(touchHeroTopMore.ella.speak1)
+            $('.txt026').html(touchHeroTopMore.ella.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_al_yc_bye.visible = true;
+        }
+
+        // 苏菲亚-银牙
+        if (heros.maxcaress_character_id == 21) {
+            $('.txt025').html(touchHeroTopMore.sufeiya.speak1)
+            $('.txt026').html(touchHeroTopMore.sufeiya.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_sfy_yy_bye.visible = true;
+        }
+
+        // 库洛姆-弧光
+        if (heros.maxcaress_character_id == 22) {
+            $('.txt025').html(touchHeroTopMore.kuluomu.speak1)
+            $('.txt026').html(touchHeroTopMore.kuluomu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_klm_hg_bye.visible = true;
+        }
+
+        // 薇拉 瑰丽
+        if (heros.maxcaress_character_id == 23) {
+            $('.txt025').html(touchHeroTopMore.weila.speak1)
+            $('.txt026').html(touchHeroTopMore.weila.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_weila_bye.visible = true;
+        }
+
+        // 卡穆 狂犬
+        if (heros.maxcaress_character_id == 24) {
+            $('.txt025').html(touchHeroTopMore.luosaita.speak1)
+            $('.txt026').html(touchHeroTopMore.luosaita.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_km_kq_bye.visible = true;
+        }
+
+        // 罗塞塔 凛冽
+        if (heros.maxcaress_character_id == 25) {
+            $('.txt025').html(touchHeroTopMore.kamu.speak1)
+            $('.txt026').html(touchHeroTopMore.kamu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_lst_ll_bye.visible = true;
+        }
+
+        // 曲 雀翎
+        if (heros.maxcaress_character_id == 26) {
+            $('.txt025').html(touchHeroTopMore.qu.speak1)
+            $('.txt026').html(touchHeroTopMore.qu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_lst_ll_bye.visible = true;
+        }
+
+        // 常羽 游麟
+        if (heros.maxcaress_character_id == 27) {
+            $('.txt025').html(touchHeroTopMore.changyu.speak1)
+            $('.txt026').html(touchHeroTopMore.changyu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_cy_yl_bye.visible = true;
+        }
+
+        // 露娜 银冕
+        if (heros.maxcaress_character_id == 28) {
+            $('.txt025').html(touchHeroTopMore.luna.speak1)
+            $('.txt026').html(touchHeroTopMore.luna.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_ln_ym_bye.visible = true;
         }
 
         // 精灵展示区移动位置
         setSprPos(heros.heroArrs, '3');
-        // 插入次数
-        $('.txt025').find('i').text(heros.touchMoreNumber)
+        // 插入摸头最多次数
+        $('.txt025').find('i').text(heros.maxcaress_character_num)
     }
     // 摸头最少
     if (heros.touchNum == 26) {
         // 隐藏全部精灵
         hideAllSpr(heros.heroArrs);
         // 根据接口返回的id, 对比本地映射插入页面
-        if (heros.touchLessId == 1) {
+
+        // 露西亚 红莲or黎明or鸦羽
+        if (heros.mincaress_character_id == 1 || heros.mincaress_character_id == 2 || heros.mincaress_character_id == 3) {
+            $('.txt027').html(touchHeroTopLess.lxy.speak1)
+            $('.txt028').html(touchHeroTopLess.lxy.speak2)
+            // 根据id 展示对应精灵
+            if (heros.mincaress_character_id == 1) {
+                heros.pixi_lxy_hl_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 2) {
+                heros.pixi_lxy_lm_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 3) {
+                heros.pixi_lxy_yy_sad.visible = true;
+            }
+        }
+
+        // 丽芙 蝕暗 or 流光 or 仰光
+        if (heros.mincaress_character_id == 4 || heros.mincaress_character_id == 5 || heros.mincaress_character_id == 6) {
+            $('.txt027').html(touchHeroTopLess.lufu.speak1)
+            $('.txt028').html(touchHeroTopLess.lufu.speak2)
+            // 根据id 展示对应精灵
+            if (heros.mincaress_character_id == 4) {
+                heros.pixi_lf_as_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 5) {
+                heros.pixi_lf_lg_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 6) {
+                heros.pixi_lf_yg_sad.visible = true;
+            }
+        }
+
+        //里 异火 or 乱数
+        if (heros.mincaress_character_id == 7 || heros.mincaress_character_id == 8) {
+            $('.txt027').html(touchHeroTopLess.li.speak1)
+            $('.txt028').html(touchHeroTopLess.li.speak2)
+            // 根据id 展示对应精灵
+            if (heros.mincaress_character_id == 7) {
+                heros.pixi_li_yh_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 8) {
+                heros.pixi_li_ls_sad.visible = true;
+            }
+        }
+
+        //七实 风暴 or 脉冲
+        if (heros.mincaress_character_id == 9 || heros.mincaress_character_id == 10) {
+            $('.txt027').html(touchHeroTopLess.qishi.speak1)
+            $('.txt028').html(touchHeroTopLess.qishi.speak2)
+            // 根据id 展示对应精灵
+            if (heros.mincaress_character_id == 9) {
+                heros.pixi_qs_fb_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 10) {
+                heros.pixi_qs_mc_sad.visible = true;
+            }
+        }
+        // 神威 重能  or 暗能
+        if (heros.mincaress_character_id == 11 || heros.mincaress_character_id == 12) {
+            $('.txt027').html(touchHeroTopLess.shenwei.speak1)
+            $('.txt028').html(touchHeroTopLess.shenwei.speak2)
+            // 根据id 展示对应精灵
+            if (heros.mincaress_character_id == 11) {
+                heros.pixi_sw_zn_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 12) {
+                heros.pixi_sw_an_sad.visible = true;
+            }
+        }
+
+        // 渡边 夜刃  or 夙星
+        if (heros.mincaress_character_id == 13 || heros.mincaress_character_id == 14) {
+            $('.txt027').html(touchHeroTopLess.dubian.speak1)
+            $('.txt028').html(touchHeroTopLess.dubian.speak2)
+            // 根据id 展示对应精灵
+            if (heros.mincaress_character_id == 13) {
+                heros.pixi_db_yr_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 14) {
+                heros.pixi_db_sx_sad.visible = true;
+            }
+        }
+
+        // 比安卡 真理 or 零度
+        if (heros.mincaress_character_id == 15 || heros.mincaress_character_id == 16) {
+            $('.txt027').html(touchHeroTopLess.bianka.speak1)
+            $('.txt028').html(touchHeroTopLess.bianka.speak2)
+            // 根据id 展示对应精灵
+            if (heros.mincaress_character_id == 15) {
+                heros.pixi_bak_zl_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 16) {
+                heros.pixi_bak_ld_sad.visible = true;
+            }
+        }
+
+        // 卡列尼娜 爆裂 or 烬燃
+        if (heros.mincaress_character_id == 17 || heros.mincaress_character_id == 18) {
+            $('.txt027').html(touchHeroTopLess.klnn.speak1)
+            $('.txt028').html(touchHeroTopLess.klnn.speak2)
+            // 根据id 展示对应精灵
+            if (heros.mincaress_character_id == 15) {
+                heros.pixi_kl_bl_sad.visible = true;
+            }
+            if (heros.mincaress_character_id == 16) {
+                heros.pixi_kl_rj_sad.visible = true;
+            }
+        }
+        // 露西亚-深红之渊
+        if (heros.mincaress_character_id == 19) {
+            $('.txt027').html(touchHeroTopLess.alpha.speak1)
+            $('.txt028').html(touchHeroTopLess.alpha.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_alpha_sad.visible = true;
+        }
+
+        // 艾拉-溢彩
+        if (heros.mincaress_character_id == 20) {
+            $('.txt027').html(touchHeroTopLess.ella.speak1)
+            $('.txt028').html(touchHeroTopLess.ella.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_al_yc_sad.visible = true;
+        }
+
+        // 苏菲亚-银牙
+        if (heros.mincaress_character_id == 21) {
+            $('.txt027').html(touchHeroTopLess.sufeiya.speak1)
+            $('.txt028').html(touchHeroTopLess.sufeiya.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_sfy_yy_sad.visible = true;
+        }
+
+        // 库洛姆-弧光
+        if (heros.mincaress_character_id == 22) {
+            $('.txt027').html(touchHeroTopLess.kuluomu.speak1)
+            $('.txt028').html(touchHeroTopLess.kuluomu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_klm_hg_sad.visible = true;
+        }
+
+        // 薇拉 瑰丽
+        if (heros.mincaress_character_id == 23) {
+            $('.txt027').html(touchHeroTopLess.weila.speak1)
+            $('.txt028').html(touchHeroTopLess.weila.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_weila_sad.visible = true;
+        }
+
+        // 卡穆 狂犬
+        if (heros.mincaress_character_id == 24) {
+            $('.txt027').html(touchHeroTopLess.luosaita.speak1)
+            $('.txt028').html(touchHeroTopLess.luosaita.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_km_kq_sad.visible = true;
+        }
+
+        // 罗塞塔 凛冽
+        if (heros.mincaress_character_id == 25) {
             $('.txt027').html(touchHeroTopLess.kamu.speak1)
             $('.txt028').html(touchHeroTopLess.kamu.speak2)
-            // 展示对应精灵
-            heros.pixi_km_kq_sad.visible = true;
+            // 根据id 展示对应精灵
+            heros.pixi_lst_ll_sad.visible = true;
+        }
+
+        // 曲 雀翎
+        if (heros.mincaress_character_id == 26) {
+            $('.txt027').html(touchHeroTopLess.qu.speak1)
+            $('.txt028').html(touchHeroTopLess.qu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_lst_ll_sad.visible = true;
+        }
+
+        // 常羽 游麟
+        if (heros.mincaress_character_id == 27) {
+            $('.txt027').html(touchHeroTopLess.changyu.speak1)
+            $('.txt028').html(touchHeroTopLess.changyu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_cy_yl_sad.visible = true;
+        }
+
+        // 露娜 银冕
+        if (heros.mincaress_character_id == 28) {
+            $('.txt027').html(touchHeroTopLess.luna.speak1)
+            $('.txt028').html(touchHeroTopLess.luna.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_ln_ym_sad.visible = true;
         }
         // 精灵展示区移动位置
         setSprPos(heros.heroArrs, '3');
         // 插入次数
-        $('.txt027').find('i').text(heros.touchLessNumber)
+        $('.txt027').find('i').text(heros.mincaress_character_num)
 
     }
 
@@ -350,16 +704,198 @@ function showText_animate(touchNum) {
         // 隐藏全部精灵
         hideAllSpr(heros.heroArrs);
         // 根据接口返回的id, 对比本地映射插入页面
-        if (heros.goPlayId == 1) {
+        // 露西亚 红莲or黎明or鸦羽
+        if (heros.use_character_id == 1 || heros.use_character_id == 2 || heros.use_character_id == 3) {
+            $('.txt029').html(touchHeroGoPlay.lxy.speak1)
+            $('.txt030').html(touchHeroGoPlay.lxy.speak2)
+            // 根据id 展示对应精灵
+            if (heros.use_character_id == 1) {
+                heros.pixi_lxy_hl_bye.visible = true;
+            }
+            if (heros.use_character_id == 2) {
+                heros.pixi_lxy_lm_bye.visible = true;
+            }
+            if (heros.use_character_id == 3) {
+                heros.pixi_lxy_yy_bye.visible = true;
+            }
+        }
+
+        // 丽芙 蝕暗 or 流光 or 仰光
+        if (heros.use_character_id == 4 || heros.use_character_id == 5 || heros.use_character_id == 6) {
+            $('.txt029').html(touchHeroGoPlay.lufu.speak1)
+            $('.txt030').html(touchHeroGoPlay.lufu.speak2)
+            // 根据id 展示对应精灵
+            if (heros.use_character_id == 4) {
+                heros.pixi_lf_as_bye.visible = true;
+            }
+            if (heros.use_character_id == 5) {
+                heros.pixi_lf_lg_bye.visible = true;
+            }
+            if (heros.use_character_id == 6) {
+                heros.pixi_lf_yg_bye.visible = true;
+            }
+        }
+
+        //里 异火 or 乱数
+        if (heros.use_character_id == 7 || heros.use_character_id == 8) {
+            $('.txt029').html(touchHeroGoPlay.li.speak1)
+            $('.txt030').html(touchHeroGoPlay.li.speak2)
+            // 根据id 展示对应精灵
+            if (heros.use_character_id == 7) {
+                heros.pixi_li_yh_bye.visible = true;
+            }
+            if (heros.use_character_id == 8) {
+                heros.pixi_li_ls_bye.visible = true;
+            }
+        }
+
+        //七实 风暴 or 脉冲
+        if (heros.use_character_id == 9 || heros.use_character_id == 10) {
+            $('.txt029').html(touchHeroGoPlay.qishi.speak1)
+            $('.txt030').html(touchHeroGoPlay.qishi.speak2)
+            // 根据id 展示对应精灵
+            if (heros.use_character_id == 9) {
+                heros.pixi_qs_fb_bye.visible = true;
+            }
+            if (heros.use_character_id == 10) {
+                heros.pixi_qs_mc_bye.visible = true;
+            }
+        }
+        // 神威 重能  or 暗能
+        if (heros.use_character_id == 11 || heros.use_character_id == 12) {
+            $('.txt029').html(touchHeroGoPlay.shenwei.speak1)
+            $('.txt030').html(touchHeroGoPlay.shenwei.speak2)
+            // 根据id 展示对应精灵
+            if (heros.use_character_id == 11) {
+                heros.pixi_sw_zn_bye.visible = true;
+            }
+            if (heros.use_character_id == 12) {
+                heros.pixi_sw_an_bye.visible = true;
+            }
+        }
+
+        // 渡边 夜刃  or 夙星
+        if (heros.use_character_id == 13 || heros.use_character_id == 14) {
+            $('.txt029').html(touchHeroGoPlay.dubian.speak1)
+            $('.txt030').html(touchHeroGoPlay.dubian.speak2)
+            // 根据id 展示对应精灵
+            if (heros.use_character_id == 13) {
+                heros.pixi_db_yr_bye.visible = true;
+            }
+            if (heros.use_character_id == 14) {
+                heros.pixi_db_sx_bye.visible = true;
+            }
+        }
+
+        // 比安卡 真理 or 零度
+        if (heros.use_character_id == 15 || heros.use_character_id == 16) {
+            $('.txt029').html(touchHeroGoPlay.bianka.speak1)
+            $('.txt030').html(touchHeroGoPlay.bianka.speak2)
+            // 根据id 展示对应精灵
+            if (heros.use_character_id == 15) {
+                heros.pixi_bak_zl_bye.visible = true;
+            }
+            if (heros.use_character_id == 16) {
+                heros.pixi_bak_ld_bye.visible = true;
+            }
+        }
+
+        // 卡列尼娜 爆裂 or 烬燃
+        if (heros.use_character_id == 17 || heros.use_character_id == 18) {
+            $('.txt029').html(touchHeroGoPlay.klnn.speak1)
+            $('.txt030').html(touchHeroGoPlay.klnn.speak2)
+            // 根据id 展示对应精灵
+            if (heros.use_character_id == 15) {
+                heros.pixi_kl_bl_bye.visible = true;
+            }
+            if (heros.use_character_id == 16) {
+                heros.pixi_kl_rj_bye.visible = true;
+            }
+        }
+        // 露西亚-深红之渊
+        if (heros.use_character_id == 19) {
             $('.txt029').html(touchHeroGoPlay.alpha.speak1)
             $('.txt030').html(touchHeroGoPlay.alpha.speak2)
-            // 展示对应精灵
+            // 根据id 展示对应精灵
             heros.pixi_alpha_bye.visible = true;
         }
+
+        // 艾拉-溢彩
+        if (heros.use_character_id == 20) {
+            $('.txt029').html(touchHeroGoPlay.ella.speak1)
+            $('.txt030').html(touchHeroGoPlay.ella.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_al_yc_bye.visible = true;
+        }
+
+        // 苏菲亚-银牙
+        if (heros.use_character_id == 21) {
+            $('.txt029').html(touchHeroGoPlay.sufeiya.speak1)
+            $('.txt030').html(touchHeroGoPlay.sufeiya.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_sfy_yy_bye.visible = true;
+        }
+
+        // 库洛姆-弧光
+        if (heros.use_character_id == 22) {
+            $('.txt029').html(touchHeroGoPlay.kuluomu.speak1)
+            $('.txt030').html(touchHeroGoPlay.kuluomu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_klm_hg_bye.visible = true;
+        }
+
+        // 薇拉 瑰丽
+        if (heros.use_character_id == 23) {
+            $('.txt029').html(touchHeroGoPlay.weila.speak1)
+            $('.txt030').html(touchHeroGoPlay.weila.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_weila_bye.visible = true;
+        }
+
+        // 卡穆 狂犬
+        if (heros.use_character_id == 24) {
+            $('.txt029').html(touchHeroGoPlay.luosaita.speak1)
+            $('.txt030').html(touchHeroGoPlay.luosaita.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_km_kq_bye.visible = true;
+        }
+
+        // 罗塞塔 凛冽
+        if (heros.use_character_id == 25) {
+            $('.txt029').html(touchHeroGoPlay.kamu.speak1)
+            $('.txt030').html(touchHeroGoPlay.kamu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_lst_ll_bye.visible = true;
+        }
+
+        // 曲 雀翎
+        if (heros.use_character_id == 26) {
+            $('.txt029').html(touchHeroGoPlay.qu.speak1)
+            $('.txt030').html(touchHeroGoPlay.qu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_lst_ll_bye.visible = true;
+        }
+
+        // 常羽 游麟
+        if (heros.use_character_id == 27) {
+            $('.txt029').html(touchHeroGoPlay.changyu.speak1)
+            $('.txt030').html(touchHeroGoPlay.changyu.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_cy_yl_bye.visible = true;
+        }
+
+        // 露娜 银冕
+        if (heros.use_character_id == 28) {
+            $('.txt029').html(touchHeroGoPlay.luna.speak1)
+            $('.txt030').html(touchHeroGoPlay.luna.speak2)
+            // 根据id 展示对应精灵
+            heros.pixi_ln_ym_bye.visible = true;
+        }
+
         // 精灵展示区移动位置
         setSprPos(heros.heroArrs, '3');
         // 插入次数
-        $('.txt029').find('i').text(heros.goPlayNumber)
+        $('.txt029').find('i').text(heros.use_character_num)
     }
 
     // 数据结束画面
@@ -542,11 +1078,12 @@ function createPIXISpr() {
     heros.pixi_al_yc_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[19], 280, 280)); // 艾拉-溢彩
     heros.pixi_sfy_yy_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[20], 280, 280)); // 苏菲亚-银牙
     heros.pixi_klm_hg_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[21], 280, 280)); // 库洛姆-弧光
-    heros.pixi_km_kq_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[22], 280, 280)); // 卡穆-狂犬
-    heros.pixi_lst_ll_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[23], 280, 280)); // 罗塞塔-凛冽
-    heros.pixi_qu_ql_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[24], 280, 280)); // 曲-雀翎
-    heros.pixi_cy_yl_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[25], 280, 280)); // 常羽-游麟
-    heros.pixi_ln_ym_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[26], 280, 280)); // 露娜-银冕
+    heros.pixi_weila_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[22], 280, 280)); // 薇拉 瑰丽
+    heros.pixi_km_kq_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[23], 280, 280)); // 卡穆-狂犬
+    heros.pixi_lst_ll_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[24], 280, 280)); // 罗塞塔-凛冽
+    heros.pixi_qu_ql_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[25], 280, 280)); // 曲-雀翎
+    heros.pixi_cy_yl_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[26], 280, 280)); // 常羽-游麟
+    heros.pixi_ln_ym_bye = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_bye[27], 280, 280)); // 露娜-银冕
 
     // 沮丧
     heros.pixi_lxy_hl_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[0], 280, 280)); // 露西亚红莲
@@ -571,11 +1108,12 @@ function createPIXISpr() {
     heros.pixi_al_yc_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[19], 280, 280)); // 艾拉-溢彩
     heros.pixi_sfy_yy_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[20], 280, 280)); // 苏菲亚-银牙
     heros.pixi_klm_hg_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[21], 280, 280)); // 库洛姆-弧光
-    heros.pixi_km_kq_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[22], 280, 280)); // 卡穆-狂犬
-    heros.pixi_lst_ll_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[23], 280, 280)); // 罗塞塔-凛冽
-    heros.pixi_qu_ql_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[24], 280, 280)); // 曲-雀翎
-    heros.pixi_cy_yl_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[25], 280, 280)); // 常羽-游麟
-    heros.pixi_ln_ym_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[26], 280, 280)); // 露娜-银冕
+    heros.pixi_weila_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[22], 280, 280)); // 薇拉 瑰丽
+    heros.pixi_km_kq_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[23], 280, 280)); // 卡穆-狂犬
+    heros.pixi_lst_ll_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[24], 280, 280)); // 罗塞塔-凛冽
+    heros.pixi_qu_ql_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[25], 280, 280)); // 曲-雀翎
+    heros.pixi_cy_yl_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[26], 280, 280)); // 常羽-游麟
+    heros.pixi_ln_ym_sad = new PIXI.extras.AnimatedSprite(su.filmstrip(imgURL_sad[27], 280, 280)); // 露娜-银冕
 
     heros.heroArrs = [
         /*===============跑步==============*/
@@ -610,39 +1148,41 @@ function createPIXISpr() {
         heros.pixi_al_yc_bye, // 艾拉-溢彩bye 27
         heros.pixi_sfy_yy_bye, // 苏菲亚-银牙bye 28
         heros.pixi_klm_hg_bye, // 库洛姆-弧光bye 29
-        heros.pixi_km_kq_bye, // 卡穆-狂犬bye 30
-        heros.pixi_lst_ll_bye, // 罗塞塔-凛冽bye 31
-        heros.pixi_qu_ql_bye, // 曲-雀翎bye 32
-        heros.pixi_cy_yl_bye, // 常羽-游麟bye 33
-        heros.pixi_ln_ym_bye, // 露娜-银冕bye 34
+        heros.pixi_weila_bye, // 薇拉 瑰丽 30
+        heros.pixi_km_kq_bye, // 卡穆-狂犬bye 31
+        heros.pixi_lst_ll_bye, // 罗塞塔-凛冽bye 32
+        heros.pixi_qu_ql_bye, // 曲-雀翎bye 33
+        heros.pixi_cy_yl_bye, // 常羽-游麟bye 34
+        heros.pixi_ln_ym_bye, // 露娜-银冕bye 35
         /*===============沮丧==============*/
-        heros.pixi_lxy_hl_sad, // 露西亚红莲sad 35
-        heros.pixi_lxy_lm_sad, // 露西亚黎明sad 36
-        heros.pixi_lxy_yy_sad, // 露西亚鸦羽sad 37
-        heros.pixi_lf_as_sad, // 丽芙-蚀暗sad 38
-        heros.pixi_lf_lg_sad, // 丽芙-流光sad 39
-        heros.pixi_lf_yg_sad, // 丽芙-仰光sad 40
-        heros.pixi_li_yh_sad, // 里-异火sad 41
-        heros.pixi_li_ls_sad, // 里-乱数sad 42
-        heros.pixi_qs_fb_sad, // 七实-风暴sad 43
-        heros.pixi_qs_mc_sad, // 七实-脉冲sad 44
-        heros.pixi_sw_zn_sad, // 神威-重能sad 45
-        heros.pixi_sw_an_sad, // 神威-暗能sad 46
-        heros.pixi_db_yr_sad, // 渡边-夜刃sad 47
-        heros.pixi_db_sx_sad, // 渡边-夙星sad 48
-        heros.pixi_bak_zl_sad, // 比安卡-真理sad 49
-        heros.pixi_bak_ld_sad, // 比安卡-零度sad 50
-        heros.pixi_kl_bl_sad, // 卡列-爆裂sad 51
-        heros.pixi_kl_rj_sad, // 卡列-烬燃sad 52
-        heros.pixi_alpha_sad, // 露西亚-深红之渊sad 53
-        heros.pixi_al_yc_sad, // 艾拉-溢彩sad 54
-        heros.pixi_sfy_yy_sad, // 苏菲亚-银牙sad 55
-        heros.pixi_klm_hg_sad, // 库洛姆-弧光sad 56
-        heros.pixi_km_kq_sad, // 卡穆-狂犬sad 57
-        heros.pixi_lst_ll_sad, // 罗塞塔-凛冽sad 58
-        heros.pixi_qu_ql_sad, // 曲-雀翎sad 59
-        heros.pixi_cy_yl_sad, // 常羽-游麟sad 60
-        heros.pixi_ln_ym_sad, // 露娜-银冕sad 61
+        heros.pixi_lxy_hl_sad, // 露西亚红莲sad 36
+        heros.pixi_lxy_lm_sad, // 露西亚黎明sad 37
+        heros.pixi_lxy_yy_sad, // 露西亚鸦羽sad 38
+        heros.pixi_lf_as_sad, // 丽芙-蚀暗sad 39
+        heros.pixi_lf_lg_sad, // 丽芙-流光sad 40
+        heros.pixi_lf_yg_sad, // 丽芙-仰光sad 41
+        heros.pixi_li_yh_sad, // 里-异火sad 42
+        heros.pixi_li_ls_sad, // 里-乱数sad 43
+        heros.pixi_qs_fb_sad, // 七实-风暴sad 44
+        heros.pixi_qs_mc_sad, // 七实-脉冲sad 45
+        heros.pixi_sw_zn_sad, // 神威-重能sad 46
+        heros.pixi_sw_an_sad, // 神威-暗能sad 47
+        heros.pixi_db_yr_sad, // 渡边-夜刃sad 48
+        heros.pixi_db_sx_sad, // 渡边-夙星sad 49
+        heros.pixi_bak_zl_sad, // 比安卡-真理sad 50
+        heros.pixi_bak_ld_sad, // 比安卡-零度sad 51
+        heros.pixi_kl_bl_sad, // 卡列-爆裂sad 52
+        heros.pixi_kl_rj_sad, // 卡列-烬燃sad 53
+        heros.pixi_alpha_sad, // 露西亚-深红之渊sad 54
+        heros.pixi_al_yc_sad, // 艾拉-溢彩sad 55
+        heros.pixi_sfy_yy_sad, // 苏菲亚-银牙sad 56
+        heros.pixi_klm_hg_sad, // 库洛姆-弧光sad 57
+        heros.pixi_weila_sad, // 薇拉 瑰丽 58
+        heros.pixi_km_kq_sad, // 卡穆-狂犬sad 59
+        heros.pixi_lst_ll_sad, // 罗塞塔-凛冽sad 60
+        heros.pixi_qu_ql_sad, // 曲-雀翎sad 61
+        heros.pixi_cy_yl_sad, // 常羽-游麟sad 62
+        heros.pixi_ln_ym_sad, // 露娜-银冕sad 63
         // 走路打招呼
         heros.pixi_lf_as_mbye,
         heros.pixi_li_yh_mbye,

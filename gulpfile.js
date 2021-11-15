@@ -1,4 +1,4 @@
-const source = require('vinyl-source-stream'); // 在gulp 中直接使用npm包  
+const source = require('vinyl-source-stream'); // 在gulp 中直接使用npm包
 const browserify = require('browserify'); // 转义 es6789更高级语法 export、import、class
 const log = require('gulplog'); //  gulp 和 gulp 插件的记录器 类似 console.log
 const tap = require('gulp-tap'); // 指定关键词过滤器
@@ -6,7 +6,7 @@ const buffer = require('gulp-buffer'); // 一些 gulp 插件不支持流式文�
 const sourcemaps = require('gulp-sourcemaps'); // 对 gulpjs 的源映射支持。
 
 // demo
-const gulp = require('gulp'); // gulp 
+const gulp = require('gulp'); // gulp
 const {
     series,
     parallel,
